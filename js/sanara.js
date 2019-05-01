@@ -174,12 +174,9 @@ function drawScores() {
     let datas = response.message.bestScores;
 
     let colors = [
-        "#800000", "#808000", "#469990",
-        "#ffe119", "#000075", "#f032e6",
-        "#aaffc3", "#ffd8b1", "#e6beff",
-        "#42d4f4", "#f58231", "#911eb4",
-        "#a9a9a9", "#000000", "#e6194B",
-        "#90eee1", "#7f6c27", "#f882a7"
+        "#00ff00", "#ff00ff", "#800000", "#000080", "#808000",
+        "#ffa500", "#ffc0cb", "#800080", "#008000", "#ff0000",
+        "#c0c0c0", "#ffff00", "#ff00ff", "#ffd700"
     ];
     let names = [
         datas["shiritori"][0], datas["shiritori"][2], datas["shiritori"][4],
