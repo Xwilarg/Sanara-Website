@@ -30,3 +30,29 @@ p {
     margin-top: 300px;
     font-size: 30px;
 }
+
+table {
+    border-collapse: collapse;
+    margin-left: 300px;
+    margin-top: 20px;
+    width: calc(100% - 300px);
+}
+
+table, th, td {
+    border: 1px solid #eee;
+    font-size: 15px;
+}
+
+th {
+  height: 50px;
+}
+
+#intro {
+    margin-left: 350px;
+    margin-top: 75px;
+    font-size: 18px;
+}
+
+a {
+    color: #6f9eba;
+}
