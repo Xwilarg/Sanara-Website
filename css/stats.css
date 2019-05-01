@@ -3,5 +3,9 @@
 }
 
 .col-sm-6 div {
-    height: 300px
+    height: 300px;
+}
+
+text {
+    fill: #eee !important;
 }

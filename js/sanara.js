@@ -1,4 +1,14 @@
 let response;
+let options = {
+    title: '',
+    isStacked: true,
+    legend: {
+        position: 'right',
+        textStyle: {color: "#eee"}
+    },
+    backgroundColor: "#181a1b",
+    titleTextStyle: {color: "#eee"}
+};
 
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
@@ -66,10 +76,7 @@ function drawCommandServs() {
     }
 
     let data = google.visualization.arrayToDataTable(arrData);
-    let options = {
-        title: 'Module usage',
-        legend: {position: 'bottom'}
-    };
+    options.title = 'Modules usage';
     let chart = new google.visualization.LineChart(document.getElementById('commandServsChart'));
     chart.draw(data, options);
 }
@@ -90,10 +97,7 @@ function drawUsesChart() {
     }
 
     let data = google.visualization.arrayToDataTable(arrData);
-    let options = {
-        title: 'Module usage per guilds',
-        legend: {position: 'bottom'}
-    };
+    options.title = 'Module usage per guilds';
     let chart = new google.visualization.AreaChart(document.getElementById('useschart'));
     chart.draw(data, options);
 }
@@ -121,10 +125,7 @@ function drawTotalUsage() {
         ['YouTube',      		getElement(modules, now, 'Youtube')]
     ]);
 
-    let options = {
-        title: 'Module usage (monthly)',
-        legend: {position: 'bottom'}
-    };
+    options.title = 'Module usage (monthly)';
     let chart = new google.visualization.PieChart(document.getElementById('moduleschart'));
     chart.draw(data, options);
 }
@@ -147,10 +148,7 @@ function drawErrors() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    let options = {
-        title: 'Errors encountered (daily)',
-        legend: {position: 'bottom'}
-    };
+    options.title = 'Errors encountered (daily)';
     let chart = new google.visualization.PieChart(document.getElementById('errorsChart'));
     chart.draw(data, options);
 }
@@ -167,11 +165,7 @@ function drawServersChart() {
         [datas[5][0], parseInt(datas[5][1]), parseInt(datas[5][2])],
     ]);
 
-    let options = {
-        title: "Server population (Ignoring 'Discord Bot List' server)",
-            isStacked: true,
-        legend: {position: 'bottom'}
-    };
+    options.title = 'Server population (Ignoring \'Discord Bot List\' server)';
     let chart = new google.visualization.ColumnChart(document.getElementById('serverschart'));
     chart.draw(data, options);
 }
@@ -209,10 +203,8 @@ function drawScores() {
         [names[1], parseInt(datas["shiritori"][3]), nameToColor[names[1]]],
         [names[2], parseInt(datas["shiritori"][5]), nameToColor[names[2]]],
     ]);
-    let options = {
-        title: "Best scores (Shiritori)",
-        legend: {position: 'none'}
-    };
+    options.title = 'Best scores (Shiritori)';
+    options.legend.position = 'none';
     let chart = new google.visualization.ColumnChart(document.getElementById('scoreschart1'));
     chart.draw(data, options);
 
@@ -222,10 +214,8 @@ function drawScores() {
         [names[4], parseInt(datas["anime"][3]), nameToColor[names[4]]],
         [names[5], parseInt(datas["anime"][5]), nameToColor[names[5]]],
     ]);
-    options = {
-        title: "Best scores (Anime guess game)",
-        legend: {position: 'none'}
-    };
+    options.title = 'Best scores (Anime guess game)';
+    options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart2'));
     chart.draw(data, options);
 
@@ -235,10 +225,8 @@ function drawScores() {
         [names[7], parseInt(datas["booru"][3]), nameToColor[names[7]]],
         [names[8], parseInt(datas["booru"][5]), nameToColor[names[8]]],
     ]);
-    options = {
-        title: "Best scores (Booru guess game)",
-        legend: {position: 'none'}
-    };
+    options.title = 'Best scores (Booru guess game)';
+    options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart3'));
     chart.draw(data, options);
 
@@ -248,10 +236,8 @@ function drawScores() {
         [names[10], parseInt(datas["kancolle"][3]), nameToColor[names[10]]],
         [names[11], parseInt(datas["kancolle"][5]), nameToColor[names[11]]],
     ]);
-    options = {
-        title: "Best scores (KanColle guess game)",
-        legend: {position: 'none'}
-    };
+    options.title = 'Best scores (KanColle guess game)';
+    options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart4'));
     chart.draw(data, options);
 
@@ -261,10 +247,8 @@ function drawScores() {
         [names[13], parseInt(datas["azurlane"][3]), nameToColor[names[13]]],
         [names[14], parseInt(datas["azurlane"][5]), nameToColor[names[14]]],
     ]);
-    options = {
-        title: "Best scores (Azur Lane guess game)",
-        legend: {position: 'none'}
-    };
+    options.title = 'Best scores (Azur Lane guess game)';
+    options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart5'));
     chart.draw(data, options);
 
@@ -274,10 +258,8 @@ function drawScores() {
         [names[16], parseInt(datas["fatego"][3]), nameToColor[names[16]]],
         [names[17], parseInt(datas["fatego"][5]), nameToColor[names[17]]],
     ]);
-    options = {
-        title: "Best scores (Fate GO guess game)",
-        legend: {position: 'none'}
-    };
+    options.title = 'Best scores (Fate GO guess game)';
+    options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart5'));
     chart.draw(data, options);*/
 }
@@ -300,10 +282,7 @@ function drawGames() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    let options = {
-        title: 'Games played (monthly)',
-        legend: {position: 'bottom'}
-    };
+    options.title = 'Games played (monthly)';
     let chart = new google.visualization.PieChart(document.getElementById('gameschart'));
     chart.draw(data, options);
 }
@@ -326,10 +305,7 @@ function drawBoorus() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    let options = {
-        title: 'Booru used (monthly)',
-        legend: {position: 'bottom'}
-    };
+    options.title = 'Booru used (monthly)';
     let chart = new google.visualization.PieChart(document.getElementById('booruChart'));
     chart.draw(data, options);
 }
