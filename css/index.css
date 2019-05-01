@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-#button {
+.button {
     background-color: #114B5F;
     border: none;
     color: white;
@@ -25,4 +25,10 @@
     display: inline-block;
     font-size: 16px;
     margin: 10px;
-  }
+}
+
+#invite-button {
+    width: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
