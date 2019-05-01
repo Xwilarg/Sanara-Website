@@ -9,7 +9,7 @@ command-menu ul {
     height: 100%;
     left: 0;
     margin-top: 50px;
-    border-top: solid #181a1b;
+    border-top: solid #181a1b 1px;
 }
 
 command-menu li {
