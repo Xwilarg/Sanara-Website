@@ -1,0 +1,32 @@
+command-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #114B5F;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    left: 0;
+    margin-top: 50px;
+    border-top: solid #181a1b;
+}
+
+command-menu li {
+    display: block;
+    color: #eee;
+    padding: 20px 36px;
+    text-decoration: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+command-menu li:hover {
+    background-color: #181a1b;
+}
+
+p {
+    text-align: center;
+    margin-top: 300px;
+    font-size: 30px;
+}
