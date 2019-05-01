@@ -211,7 +211,7 @@ function drawScores() {
     ]);
     let options = {
         title: "Best scores (Shiritori)",
-        legend: {position: 'bottom'}
+        legend: {position: 'none'}
     };
     let chart = new google.visualization.ColumnChart(document.getElementById('scoreschart1'));
     chart.draw(data, options);
@@ -224,7 +224,7 @@ function drawScores() {
     ]);
     options = {
         title: "Best scores (Anime guess game)",
-        legend: {position: 'bottom'}
+        legend: {position: 'none'}
     };
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart2'));
     chart.draw(data, options);
@@ -237,7 +237,7 @@ function drawScores() {
     ]);
     options = {
         title: "Best scores (Booru guess game)",
-        legend: {position: 'bottom'}
+        legend: {position: 'none'}
     };
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart3'));
     chart.draw(data, options);
@@ -250,7 +250,7 @@ function drawScores() {
     ]);
     options = {
         title: "Best scores (KanColle guess game)",
-        legend: {position: 'bottom'}
+        legend: {position: 'none'}
     };
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart4'));
     chart.draw(data, options);
@@ -263,7 +263,7 @@ function drawScores() {
     ]);
     options = {
         title: "Best scores (Azur Lane guess game)",
-        legend: {position: 'bottom'}
+        legend: {position: 'none'}
     };
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart5'));
     chart.draw(data, options);
@@ -276,7 +276,7 @@ function drawScores() {
     ]);
     options = {
         title: "Best scores (Fate GO guess game)",
-        legend: {position: 'bottom'}
+        legend: {position: 'none'}
     };
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart5'));
     chart.draw(data, options);*/
