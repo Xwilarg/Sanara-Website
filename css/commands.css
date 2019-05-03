@@ -31,6 +31,11 @@ p {
     font-size: 30px;
 }
 
+div {
+    margin-left: 300px;
+    margin-top: 20px;
+}
+
 table {
     border-collapse: collapse;
     margin-left: 300px;
