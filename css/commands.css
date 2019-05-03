@@ -44,8 +44,11 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #eee;
     font-size: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #222;
 }
 
 th {
