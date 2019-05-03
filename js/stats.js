@@ -184,7 +184,7 @@ function drawScores() {
         datas["booru"][0], datas["booru"][2], datas["booru"][4],
         datas["kancolle"][0], datas["kancolle"][2], datas["kancolle"][4],
         datas["azurlane"][0], datas["azurlane"][2], datas["azurlane"][4],
-        //datas["fatego"][0], datas["fatego"][2], datas["fatego"][4]
+        datas["fatego"][0], datas["fatego"][2], datas["fatego"][4]
     ];
     let nameToColor = {};
     let index = 0;
@@ -249,7 +249,7 @@ function drawScores() {
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart5'));
     chart.draw(data, options);
 
-    /*data = google.visualization.arrayToDataTable([
+    data = google.visualization.arrayToDataTable([
         ["Server's name", 'Score', { role: 'style' }],
         [names[15], parseInt(datas["fatego"][1]), nameToColor[names[15]]],
         [names[16], parseInt(datas["fatego"][3]), nameToColor[names[16]]],
@@ -258,7 +258,7 @@ function drawScores() {
     options.title = 'Best scores (Fate GO guess game)';
     options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart5'));
-    chart.draw(data, options);*/
+    chart.draw(data, options);
 }
 
 function drawGames() {
