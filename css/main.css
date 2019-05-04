@@ -1,4 +1,4 @@
-ul {
+#menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -12,16 +12,16 @@ ul {
     z-index: 1;
 }
 
-li {
+#menu li {
     float: left;
 }
 
-li a {
+#menu li a {
     display: block;
     padding: 10px 10px;
 }
 
-li a:hover {
+#menu li a:hover {
     background-color: #111;
 }
 

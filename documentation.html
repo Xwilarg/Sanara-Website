@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/documentation.css">
     </head>
     <body>
-        <ul>
+        <ul id="menu">
             <li><a href="index.html"><img alt="Back" src="img/Back.png"></a></li>
         </ul>
         <div>
@@ -15,8 +15,10 @@
             If your language doesn't exist, you'll need to create a folder with your language 'code' in the Translations directory.</br>
             Language code must be follow <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1">ISO 639-1</a> (ex: 'fr' for French, 'ja' for Japanese, etc...).<br/><br/>
             Then inside begin by creating a infos.json file that will contains the 2 following keys:<br/>
-            &emsp;- nameEnglish: The name of the language in the english language<br/>
-            &emsp;- nameLanguage: The name of the language in your language<br/>
+            <ul>
+                <li>nameEnglish: The name of the language in the english language</li>
+                <li>nameLanguage: The name of the language in your language</li>
+            </ul>
             For example, with french 'nameEnglish' would be 'french' and 'nameLanguage' would be 'français'<br/><br/>
             Then create a terms.json file and write all your translations here, the easiest way to know the different keys is to take the
             <a href="https://github.com/Xwilarg/Sanara-translations/blob/master/Translations/en/terms.json">english terms.json</a> as an example.<br/><br/>
