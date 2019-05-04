@@ -32,3 +32,27 @@
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+#sanara {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+}
+
+#sanara span {
+    visibility: hidden;
+    width: 120px;
+    background-color: #111;
+    color: #eee;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    transform: translate(-30px, -50px);
+}
+
+#sanara:hover span {
+    visibility: visible;
+}
