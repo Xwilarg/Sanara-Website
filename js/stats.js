@@ -257,7 +257,7 @@ function drawScores() {
     ]);
     options.title = 'Best scores (Fate GO guess game)';
     options.legend.position = 'none';
-    chart = new google.visualization.ColumnChart(document.getElementById('scoreschart5'));
+    chart = new google.visualization.ColumnChart(document.getElementById('scoreschart6'));
     chart.draw(data, options);
 }
 
