@@ -24,6 +24,7 @@ command-menu li {
 
 command-menu li:hover {
     background-color: #181a1b;
+    width: 230px;
 }
 
 p {
