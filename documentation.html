@@ -24,7 +24,50 @@
             <a href="https://github.com/Xwilarg/Sanara-translations/blob/master/Translations/en/terms.json">english terms.json</a> as an example.<br/><br/>
             If your language already exist, then you just have to modify the terms.json file.<br/><br/>
             Either way, once you are done just do a pull request.
-            <br/><br/><hr/><br/><h3>Using Sanara by cloning the repository</h3>
+            <br/><br/><hr/><br/>
+            <h3>Using Sanara by cloning the repository</h3>
+            At first you'll need to clone <a href="https://github.com/Xwilarg/Sanara">Sanara repository</a> recursively (so the translation module is cloned too)<br>
+            git clone --recurse-submodules https://github.com/Xwilarg/Sanara.git<br/><br/>
+            Then launch install.sh, it'll download the following:
+            <ul>
+                <li>ReThinkdb (database used by Sanara)</li>
+                <li>All files needed for game module</li>
+                <li>Opus, libsodium, ffmpeg and youtube-dl for radio module</li>
+            </ul>
+            Once the script is done, go in SanaraV2/bin/Debug/Keys and create a file named "token.dat", this file must contain your bot token
+            (you can obtain is on the <a href="https://discordapp.com/developers/applications/">Discord developper portail</a>).<br/>
+            You can also create the following files:
+            <ul>
+                <li>Sanara-7430da57d6af.json: JSON file to Google Translate API, used for translation command</li>
+                <li>youtubeAPIKey.dat: Contains your YouTube API key, used for YouTube command and radio</li>
+                <li>raven.dat: Contains your Sentry key, used to automate bug reports</li>
+                <li>visionAPI.json: Contains your JSON file to Google Vision API, used for translation command</li>
+            </ul>
+            Then go in SanaraV2/Modules/Base/Sentences.cs and modify the following:
+            <ul>
+                <li>ownerStr is your Discord full name (username#tag)</li>
+                <li>ownerId is your Discord ID (to get id, go in a channel and do a left click on your nickname, then do "Copy ID")</li>
+            </ul>
+            Once it's done, launch Visual Studio and start the project.<br/>
+            If you want to be sure that everything was loaded properly, you can launch the 'status' command.
+            <br/><br/><hr/><br/>
+            <h3>Improving Sanara</h3>
+            To begin with, you'll need to fork the repository and to setup the bot as described in the previous step.<br/><br/>
+            At first, you need to understand that Sanara work by modules, the best way to understand that is to have a look at her <a href="https://sanara.zirk.eu/commands.html">commands</a>.<br/>
+            All interractions with Discord are located in the 'Modules' folder, command management (processing datas) in done in the 'Features' folder.<br/>
+            Some modules aren't concerned because they are too 'close' to Discord (meaning that the only things they would do would interracting with it), these are the following: Communication, Information, Radio and Settings.<br/>
+            Everything related to games is also in a separated folder so modifying them is way easier (because games have a lot of interractions with everything).<br/><br/>
+            Each 'Modules' subfolders contains a file named 'Sentences.cs', it's because everything the bot say must be available for translation (see the first section of this page).<br/><br/>
+            If you want to create a new game you must do the following:<br/>
+            <ul>
+                <li>Create your game in SanaraV2/Games/Impl (you must inherit AGame or AQuizz)</li>
+                <li>In SanaraV2/Games/Constants.cs you must add it to the 'allGames' and the 'allDictionnaries' arrays.</li>
+            </ul>
+            Your last step would be to make sure everything still work, for that you can launch Sanara's unit tests.<br/>
+            For that, I recommand using <a href="https://chocolatey.org/packages/XUnit">Chocolatey</a>, once you have installed it you can do "choco install xunit" to install xunit.<br/>
+            Then go in Sanara's root repository with Powershell and execute the following line:<br/>
+            OpenCover.Console.exe -register:user -target:"xunit.console.x86.exe" -targetargs:".\Sanara-UnitTests\bin\Debug\Sanara-UnitTests.dll -noshadow"<br/><br/>
+            Once you are satisfied of your work, you can do a pull request.
         </div>
     </body>
 </html>
