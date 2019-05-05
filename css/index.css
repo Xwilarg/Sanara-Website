@@ -57,3 +57,7 @@
 #sanara:hover span {
     visibility: visible;
 }
+
+#sanara-img {
+    height: 150px;
+}
