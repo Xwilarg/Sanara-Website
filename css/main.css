@@ -33,3 +33,7 @@ html, body {
 a {
     color: #6f9eba;
 }
+
+html {
+    font-family: 'Open Sans', sans-serif;
+}
