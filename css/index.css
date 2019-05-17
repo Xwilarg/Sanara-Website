@@ -1,13 +1,14 @@
 #intro {
     font-size: 60px;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 125px;
 }
 
 #intro-sub {
     font-size: 30px;
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 80px;
 }
 
 #intro-menu {
@@ -30,8 +31,8 @@
 
 #invite-button {
     width: 300px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     font-size: 22px;
 }
 
@@ -61,4 +62,27 @@
 
 #sanara-img {
     height: 150px;
+}
+
+table {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #151515;
+}
+
+th {
+    width: 33%;
+    text-align: center;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+span {
+    font-size: 30px;
+}
+
+th a {
+    text-decoration: none;
 }
