@@ -4,3 +4,13 @@ div {
     font-size: 18px;
     line-height: 25px;
 }
+
+h3 {
+    border: 1px solid #ddd;
+    padding: 7px 20px;
+    background-color: #222;
+}
+
+.right {
+    float: right;
+}
