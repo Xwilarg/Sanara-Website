@@ -46,22 +46,27 @@
                     <li>All files needed for game module</li>
                     <li>Opus, libsodium, ffmpeg and youtube-dl for radio module</li>
                 </ul>
-                Once the script is done, go in SanaraV2/bin/Debug/Keys and create a file named "token.dat", this file must contain your bot token
-                (you can obtain is on the <a href="https://discordapp.com/developers/applications/">Discord developper portail</a>).<br/>
-                You can also create the following files:
+                Once the script is done, go in SanaraV2/bin/Debug/Keys and create a file named "Credentials.json", this file will contains all your keys in the JSON format:<br/>
+                <code>"botToken" : "AAABBBCCC",</code><br/>
+                There are 3 mandatory values:
                 <ul>
-                    <li>Sanara-7430da57d6af.json: JSON file to Google Translate API, used for translation command</li>
-                    <li>youtubeAPIKey.dat: Contains your YouTube API key, used for YouTube command and radio</li>
-                    <li>raven.dat: Contains your Sentry key, used to automate bug reports</li>
-                    <li>visionAPI.json: Contains your JSON file to Google Vision API, used for translation command</li>
+                    <li>botToken: Your bot token (you can obtain it on the <a href="https://discordapp.com/developers/applications/">Discord developper portail</a>)</li>
+                    <li>ownerId: Your Discord ID (to get it you can write \@YourName in a chat)</li>
+                    <li>ownerStr: Your Discord full name (YourName#0123)</li>
                 </ul>
-                Then go in SanaraV2/Modules/Base/Sentences.cs and modify the following:
+                The only mandatory value is your bot token named "botToken" (you can obtain it on the <a href="https://discordapp.com/developers/applications/">Discord developper portail</a>).<br/>
+                You can also have the following optional fields:
                 <ul>
-                    <li>ownerStr is your Discord full name (username#tag)</li>
-                    <li>ownerId is your Discord ID (to get id, go in a channel and do a left click on your nickname, then do "Copy ID")</li>
+                    <li>websiteStats: Contains the website in which Sanara's stats are sent</li>
+                    <li>websiteStatsToken: Authentification token for sending stats</li>
+                    <li>googleTranslateJson: Path to the JSON to use the Google Cloud Translation API (used for the translation command)</li>
+                    <li>googleVisionCloud: Path to the JSON to use the Google Cloud Vision API (used for the translation command)</li>
+                    <li>youtubeKey: Your YouTube API key (used for the youtube command and the radio module)</li>
+                    <li>ravenKey: Your Sentry API key (error reporting)</li>
                 </ul>
                 Once it's done, launch Visual Studio and start the project.<br/>
                 If you want to be sure that everything was loaded properly, you can launch the 'status' command.
+                <br/>
             </span>
             <br/><hr/><br/>
             <h3 onclick="trigger('Improve')">Improving Sanara<span id="rightImprove" class="right">▼</span></h3>
