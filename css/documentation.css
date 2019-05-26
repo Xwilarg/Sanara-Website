@@ -11,6 +11,10 @@ h3 {
     background-color: #222;
 }
 
+h3:hover {
+    cursor: pointer;
+}
+
 .right {
     float: right;
 }
