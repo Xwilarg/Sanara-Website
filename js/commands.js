@@ -129,17 +129,23 @@ function displayMedia() {
 function displayTools() {
     document.getElementById("table").innerHTML =
     tableIntro('Various useful tools.')
-    + '<tr><td>Infos [user]</td>'
-    + '<td>Give informations about an user</td><td>Communication</td><td>None</td></tr>'
-    + '<tr><td>BotInfos</td>'
-    + '<td>Give informations about the bot</td><td>Communication</td><td>None</td></tr>'
-    + '<tr><td>Quote [(optional) Message ID]</td>'
-    + '<td>Quote a message</td><td>Communication</td><td>None</td></tr>'
     + '<tr><td>Japanese [word]</td>'
     + '<td>Translate a word in both japanese and english</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Translation [language] [sentence/link to image]</td>'
     + '<td>Translate a sentence in the language given</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Urban [word]</td>'
     + '<td>Define a word using Urban Dictionnary</td><td>Linguistic</td><td>None</td></tr>'
+    + tableOutro();
+}
+
+function displayDiscord() {
+    document.getElementById("table").innerHTML =
+    tableIntro('Various interractions with Discord.')
+    + '<tr><td>Infos [user]</td>'
+    + '<td>Give informations about an user</td><td>Communication</td><td>None</td></tr>'
+    + '<tr><td>BotInfos</td>'
+    + '<td>Give informations about the bot</td><td>Communication</td><td>None</td></tr>'
+    + '<tr><td>Quote [(optional) Message ID]</td>'
+    + '<td>Quote a message</td><td>Communication</td><td>None</td></tr>'
     + tableOutro();
 }
