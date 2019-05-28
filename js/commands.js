@@ -59,6 +59,8 @@ function displayGame() {
     + '<td>Play the booru game (you need to identify tag of Gelbooru images)</td><td>Game</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Play anime</td>'
     + '<td>Play the anime guess game (you need to identify an anime from an excerpt of it)</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Play pokemon</td>'
+    + '<td>Play the Pokemon game (you need to identify pokemons by an image)</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Score</td>'
     + '<td>Display your best scores compared to the other guilds</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Cancel</td>'

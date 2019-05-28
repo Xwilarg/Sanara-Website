@@ -185,7 +185,8 @@ function drawScores() {
         datas["booru"][0], datas["booru"][2], datas["booru"][4],
         datas["kancolle"][0], datas["kancolle"][2], datas["kancolle"][4],
         datas["azurlane"][0], datas["azurlane"][2], datas["azurlane"][4],
-        datas["fatego"][0], datas["fatego"][2], datas["fatego"][4]
+        datas["fatego"][0], datas["fatego"][2], datas["fatego"][4],
+        datas["pokemon"][0], datas["pokemon"][2], datas["pokemon"][4]
     ];
     let nameToColor = {};
     let index = 0;
@@ -259,6 +260,17 @@ function drawScores() {
     options.title = 'Best scores (Fate GO guess game)';
     options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart6'));
+    chart.draw(data, options);
+
+    data = google.visualization.arrayToDataTable([
+        ["Server's name", 'Score', { role: 'style' }],
+        [names[18], parseInt(datas["pokemon"][1]), nameToColor[names[18]]],
+        [names[19], parseInt(datas["pokemon"][3]), nameToColor[names[19]]],
+        [names[20], parseInt(datas["pokemon"][5]), nameToColor[names[20]]],
+    ]);
+    options.title = 'Best scores (Pokemon guess game)';
+    options.legend.position = 'none';
+    chart = new google.visualization.ColumnChart(document.getElementById('scoreschart7'));
     chart.draw(data, options);
 }
 
