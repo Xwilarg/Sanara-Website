@@ -135,6 +135,8 @@ function displayTools() {
     + '<td>Translate a sentence in the language given</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Urban [word]</td>'
     + '<td>Define a word using Urban Dictionnary</td><td>Linguistic</td><td>None</td></tr>'
+    + '<tr><td>Shell [command]</td>'
+    + '<td>Explain the different parts of a Shell command</td><td>Code</td><td>None</td></tr>'
     + tableOutro();
 }
 
