@@ -9,21 +9,21 @@ function tableOutro() {
 function displayImage() {
     document.getElementById("table").innerHTML =
     tableIntro('Get images and various other related stuff.')
-    + '<tr><td>Safebooru [tags]</td>'
+    + '<tr><td>Safebooru [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://safebooru.org">Safebooru</a> (only SFW images)</td><td>Booru</td><td>None</td></tr>'
-    + '<tr><td>Konachan [tags]</td>'
+    + '<tr><td>Konachan [(optional)tags]</td>'
     + '<td>Request a random image from <a href="http://konachan.com">Konachan</a> (only wallpapers)</td><td>Booru</td><td>NSFW channel only</td></tr>'
-    + '<tr><td>Gelbooru [tags]</td>'
+    + '<tr><td>Gelbooru [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://gelbooru.com">Gelbooru</a> (no particular rules)</td><td>Booru</td><td>NSFW channel only</td></tr>'
-    + '<tr><td>Rule34 [tags]</td>'
+    + '<tr><td>Rule34 [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://rule34.xxx/">Rule 34</a> (mostly weird images)</td><td>Booru</td><td>NSFW channel only</td></tr>'
-    + '<tr><td>E621 [tags]</td>'
+    + '<tr><td>E621 [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://e621.net">E621</a> (mostly furries)</td><td>Booru</td><td>NSFW channel only</td></tr>'
-    + '<tr><td>E926 [tags]</td>'
+    + '<tr><td>E926 [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://e926.net/">E926</a> (mostly furries, only SFW images)</td><td>Booru</td><td>None</td></tr>'
-    + '<tr><td>Doujinshi [tags]</td>'
+    + '<tr><td>Doujinshi [(optional)tags]</td>'
     + '<td>Request a manga doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
-    + '<tr><td>Cosplay [tags]</td>'
+    + '<tr><td>Cosplay [(optional)tags]</td>'
     + '<td>Request a cosplay from <a href="https://e-hentai.org">E-Hentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + tableOutro();
 }
