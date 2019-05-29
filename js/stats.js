@@ -186,7 +186,8 @@ function drawScores() {
         datas["kancolle"][0], datas["kancolle"][2], datas["kancolle"][4],
         datas["azurlane"][0], datas["azurlane"][2], datas["azurlane"][4],
         datas["fatego"][0], datas["fatego"][2], datas["fatego"][4],
-        datas["pokemon"][0], datas["pokemon"][2], datas["pokemon"][4]
+        datas["pokemon"][0], datas["pokemon"][2], datas["pokemon"][4],
+        datas["general"][0], datas["general"][2], datas["general"][4], datas["general"][6], datas["general"][8]
     ];
     let nameToColor = {};
     let index = 0;
@@ -271,6 +272,19 @@ function drawScores() {
     options.title = 'Best scores (Pokemon guess game)';
     options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart7'));
+    chart.draw(data, options);
+
+    data = google.visualization.arrayToDataTable([
+        ["Server's name", 'Score', { role: 'style' }],
+        [names[21], parseInt(datas["general"][1]), nameToColor[names[21]]],
+        [names[22], parseInt(datas["general"][3]), nameToColor[names[22]]],
+        [names[23], parseInt(datas["general"][5]), nameToColor[names[23]]],
+        [names[24], parseInt(datas["general"][7]), nameToColor[names[24]]],
+        [names[25], parseInt(datas["general"][9]), nameToColor[names[25]]],
+    ]);
+    options.title = 'Global game ranking';
+    options.legend.position = 'none';
+    chart = new google.visualization.ColumnChart(document.getElementById('rankingchart'));
     chart.draw(data, options);
 }
 
