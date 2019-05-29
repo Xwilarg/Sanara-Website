@@ -8,7 +8,7 @@ function tableOutro() {
 
 function displayImage() {
     document.getElementById("table").innerHTML =
-    tableIntro('Everything related to images from getting them to various analysis tools.')
+    tableIntro('Get images and various other related stuff.')
     + '<tr><td>Safebooru [tags]</td>'
     + '<td>Request a random image from <a href="https://safebooru.org">Safebooru</a> (only SFW images)</td><td>Booru</td><td>None</td></tr>'
     + '<tr><td>Konachan [tags]</td>'
@@ -21,8 +21,10 @@ function displayImage() {
     + '<td>Request a random image from <a href="https://e621.net">E621</a> (mostly furries)</td><td>Booru</td><td>NSFW channel only</td></tr>'
     + '<tr><td>E926 [tags]</td>'
     + '<td>Request a random image from <a href="https://e926.net/">E926</a> (mostly furries, only SFW images)</td><td>Booru</td><td>None</td></tr>'
-    + '<tr><td>Color [RGB/Hexa/Name]</td>'
-    + '<td>Display a color along with it RGB and Hexadecimal values</td><td>Image</td><td>None</td></tr>'
+    + '<tr><td>Doujinshi [tags]</td>'
+    + '<td>Request a manga doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
+    + '<tr><td>Cosplay [tags]</td>'
+    + '<td>Request a cosplay from <a href="https://e-hentai.org">E-Hentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + tableOutro();
 }
 
@@ -33,8 +35,6 @@ function displayJapan() {
     + '<td>Give information about an anime</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Manga [name]</td>'
     + '<td>Give information about a manga</td><td>Anime/Manga</td><td>None</td></tr>'
-    + '<tr><td>Doujinshi [tags]</td>'
-    + '<td>Request a doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Kancolle charac [shipgirl]</td>'
     + '<td>Give informations about a shipgirl from KanColle wikia</td><td>Kantai Collection</td><td>None</td></tr>'
     + '<tr><td>Kancolle drop [shipgirl]</td>'
@@ -139,6 +139,8 @@ function displayTools() {
     + '<td>Translate a sentence in the language given</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Urban [word]</td>'
     + '<td>Define a word using Urban Dictionnary</td><td>Linguistic</td><td>None</td></tr>'
+    + '<tr><td>Color [RGB/Hexa/Name]</td>'
+    + '<td>Display a color along with it RGB and Hexadecimal values</td><td>Code</td><td>None</td></tr>'
     + '<tr><td>Shell [command]</td>'
     + '<td>Explain the different parts of a Shell command</td><td>Code</td><td>None</td></tr>'
     + tableOutro();

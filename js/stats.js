@@ -64,13 +64,13 @@ function drawCommandServs() {
 
     let val = response.message.serverModules;
 
-    let arrData = [['Date', 'Anime/Manga', 'Booru', 'Code', 'Communication', 'Doujinshi', 'Game', 'Image', 'Information', 'Kantai Collection',
+    let arrData = [['Date', 'Anime/Manga', 'Booru', 'Code', 'Communication', 'Doujinshi', 'Game', 'Information', 'Kantai Collection',
         'Linguistic', 'Radio', 'Settings', 'Visual Novel', 'Xkcd', 'YouTube']];
 
     for (let i = 9; i >= 0; i--) {
         arrData.push(['H-' + i,
         getElement(val, values[i], 'AnimeManga'), getElement(val, values[i], 'Booru'), getElement(val, values[i], 'Code'), getElement(val, values[i], 'Communication'),
-		getElement(val, values[i], 'Doujinshi'), getElement(val, values[i], 'Game'),getElement(val, values[i], 'Image'), getElement(val, values[i], 'Information'),
+		getElement(val, values[i], 'Doujinshi'), getElement(val, values[i], 'Game'), getElement(val, values[i], 'Information'),
 		getElement(val, values[i], 'KantaiCollection'), getElement(val, values[i], 'Linguistic'), getElement(val, values[i], 'Radio'), getElement(val, values[i], 'Settings'),
 		getElement(val, values[i], 'VisualNovel'), getElement(val, values[i], 'Xkcd'), getElement(val, values[i], 'Youtube')]);
     }
@@ -115,7 +115,6 @@ function drawTotalUsage() {
         ['Communication',   	getElement(modules, now, 'Communication')],
         ['Doujinshi',     		getElement(modules, now, 'Doujinshi')],
         ['Game',      			getElement(modules, now, 'Game')],
-        ['Image', 				getElement(modules, now, 'Image')],
         ['Information',   	    getElement(modules, now, 'Information')],
         ['Kantai Collection', 	getElement(modules, now, 'KantaiCollection')],
         ['Linguistic',      	getElement(modules, now, 'Linguistic')],
