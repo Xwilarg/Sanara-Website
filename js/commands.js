@@ -21,6 +21,8 @@ function displayImage() {
     + '<td>Request a random image from <a href="https://e621.net">E621</a> (mostly furries)</td><td>Booru</td><td>NSFW channel only</td></tr>'
     + '<tr><td>E926 [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://e926.net/">E926</a> (mostly furries, only SFW images)</td><td>Booru</td><td>None</td></tr>'
+    + '<tr><td>Tags [id]</td>'
+    + '<td>Get more information about an image previously given by Sanara</td><td>Booru</td><td>None</td></tr>'
     + '<tr><td>Doujinshi [(optional)tags]</td>'
     + '<td>Request a manga doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Cosplay [(optional)tags]</td>'
