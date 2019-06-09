@@ -55,6 +55,19 @@ tr:nth-child(even) {
 
 th {
     height: 50px;
+    width: 15%;
+}
+
+#description {
+    width: 55%;
+}
+
+#descriptionSmall {
+    width: 50%;
+}
+
+#small {
+    width: 5%;
 }
 
 td {

@@ -1,5 +1,5 @@
-function tableIntro(introLine) {
-    return '<nav id="intro">' + introLine + '</nav><table><tr><th>Name</th><th>Description</th><th>Sub-module</th><th>Availability</th></tr>';
+function tableIntro(introLine, displayNbOfPlayers) {
+    return '<nav id="intro">' + introLine + '</nav><table><tr><th>Name</th><th id="description'+ (displayNbOfPlayers ? 'Small' : '') + '">Description</th>' + (displayNbOfPlayers ? '<th id="small">Nb of players</th>' : '') + '<th>Sub-module</th><th>Availability</th></tr>';
 }
 
 function tableOutro() {
@@ -8,7 +8,7 @@ function tableOutro() {
 
 function displayImage() {
     document.getElementById("table").innerHTML =
-    tableIntro('Get images and various other related stuff.')
+    tableIntro('Get images and various other related stuff.', false)
     + '<tr><td>Safebooru [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://safebooru.org">Safebooru</a> (only SFW images)</td><td>Booru</td><td>None</td></tr>'
     + '<tr><td>Konachan [(optional)tags]</td>'
@@ -21,6 +21,8 @@ function displayImage() {
     + '<td>Request a random image from <a href="https://e621.net">E621</a> (mostly furries)</td><td>Booru</td><td>NSFW channel only</td></tr>'
     + '<tr><td>E926 [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://e926.net/">E926</a> (mostly furries, only SFW images)</td><td>Booru</td><td>None</td></tr>'
+    + '<tr><td>Tags [id]</td>'
+    + '<td>Get more information about an image previously given by Sanara</td><td>Booru</td><td>None</td></tr>'
     + '<tr><td>Doujinshi [(optional)tags]</td>'
     + '<td>Request a manga doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Cosplay [(optional)tags]</td>'
@@ -30,7 +32,7 @@ function displayImage() {
 
 function displayJapan() {
     document.getElementById("table").innerHTML =
-    tableIntro('Commands related to Japan culture.')
+    tableIntro('Commands related to Japan culture.', false)
     + '<tr><td>Anime [name]</td>'
     + '<td>Give information about an anime</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Manga [name]</td>'
@@ -46,33 +48,42 @@ function displayJapan() {
 
 function displayGame() {
     document.getElementById("table").innerHTML =
-    tableIntro('Play with Sanara in a text channel, ranking are available <a href="stats.html#games">in the stats page</a>.')
+    tableIntro('Play with Sanara in a text channel, ranking are available <a href="stats.html#games">in the stats page</a>.', true)
     + '<tr><td>Play shiritori</td>'
-    + '<td>Play the shiritori game (you need to find a japanese word beginning by the ending of the previous one)</td><td>Game</td><td>None</td></tr>'
+    + '<td>Play the shiritori game (you need to find a japanese word beginning by the ending of the previous one)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play kancolle</td>'
-    + '<td>Play the KanColle guess game (you need to identify shipgirls by an image)</td><td>Game</td><td>None</td></tr>'
+    + '<td>Play the KanColle guess game (you need to identify shipgirls by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play azurlane</td>'
-    + '<td>Play the Azur Lane guess game (you need to identify shipgirls by an image)</td><td>Game</td><td>None</td></tr>'
+    + '<td>Play the Azur Lane guess game (you need to identify shipgirls by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play fatego</td>'
-    + '<td>Play the Fate GO guess game (you need to identify characters by an image)</td><td>Game</td><td>None</td></tr>'
+    + '<td>Play the Fate GO guess game (you need to identify characters by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play booru</td>'
-    + '<td>Play the booru game (you need to identify tag of Gelbooru images)</td><td>Game</td><td>NSFW channel only</td></tr>'
+    + '<td>Play the booru game (you need to identify tag of Gelbooru images)</td><td>1</td><td>Game</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Play anime</td>'
-    + '<td>Play the anime guess game (you need to identify an anime from an excerpt of it)</td><td>Game</td><td>None</td></tr>'
+    + '<td>Play the anime guess game (you need to identify an anime from an excerpt of it)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play pokemon</td>'
-    + '<td>Play the Pokemon game (you need to identify pokemons by an image)</td><td>Game</td><td>None</td></tr>'
+    + '<td>Play the Pokemon game (you need to identify pokemons by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Score</td>'
-    + '<td>Display your best scores compared to the other guilds</td><td>Game</td><td>None</td></tr>'
+    + '<td>Display your best scores compared to the other guilds</td><td>N/A</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Cancel</td>'
-    + '<td>Cancel the current game</td><td>Game</td><td>None</td></tr>'
+    + '<td>Cancel the current game</td><td>N/A</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Join</td>'
+    + '<td>Join a multiplayer lobby</td><td>N/A</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Leave</td>'
+    + '<td>Leave a multiplayer lobby</td><td>N/A</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Start</td>'
+    + '<td>Force a multiplayer game to start</td><td>N/A</td><td>Game</td><td>None</td></tr>'
     + tableOutro()
     + '<div>Note: if you feel like you don\'t have enough time to answer, you can add \'easy\' at the end of the command.<br/>'
-    + 'For the anime game, you can also add \'full\' to have more anime names (way harder).</div>';
+    + 'For the anime game, you can also add \'full\' to have more anime names (way harder).<br/>'
+    + 'Make note that your scores aren\'t saved if you use the \'full\' or \'easy\' option.<br/><br/>'
+    + 'To play against someone else, add \'multiplayer\' at the end of the command.<br/>'
+    + 'For all solo game the final score is shared with the guild so anyone can play with you.</div>';
 }
 
 function displayRadio() {
     document.getElementById("table").innerHTML =
-    tableIntro('Listen to music in a vocal channel.')
+    tableIntro('Listen to music in a vocal channel.', false)
     + '<tr><td>Radio launch</td>'
     + '<td>Make the bot join you in a vocal channel</td><td>Radio</td><td>None</td></tr>'
     + '<tr><td>Radio add [YouTube url/keywords]</td>'
@@ -88,7 +99,7 @@ function displayRadio() {
 
 function displaySettings() {
     document.getElementById("table").innerHTML =
-    tableIntro('Modify Sanara\'s behaviour and get important information.')
+    tableIntro('Modify Sanara\'s behaviour and get important information.', false)
     + '<tr><td>Help [module name/page]</td>'
     + '<td>Display the help</td><td>Information</td><td>None</td></tr>'
     + '<tr><td>GDPR</td>'
@@ -105,10 +116,8 @@ function displaySettings() {
     + '<td>Set the prefix of the bot for this guild</td><td>Settings</td><td>Guild owner only</td></tr>'
     + '<tr><td>Reload language</td>'
     + '<td>Reload translation language files</td><td>Settings</td><td>Bot owner only</td></tr>'
-    + '<tr><td>Leave [(optional) name]</td>'
+    + '<tr><td>Exit [(optional) name]</td>'
     + '<td>Leave the guild given in parameter or the current one if none specified</td><td>Settings</td><td>Bot owner only</td></tr>'
-    + '<tr><td>Exit</td>'
-    + '<td>Exit the bot</td><td>Settings</td><td>Bot owner only</td></tr>'
     + '<tr><td>Enable [module name/all]</td>'
     + '<td>Enable a module</td><td>Settings</td><td>Guild owner only</td></tr>'
     + '<tr><td>Disable [module name/all]</td>'
@@ -122,7 +131,7 @@ function displaySettings() {
 
 function displayMedia() {
     document.getElementById("table").innerHTML =
-    tableIntro('Interract with various medias.')
+    tableIntro('Interract with various medias.', false)
     + '<tr><td>Xkcd [(optional) comic id]</td>'
     + '<td>Give a random xkcd comic</td><td>Xkcd</td><td>None</td></tr>'
     + '<tr><td>Youtube [keywords]</td>'
@@ -132,7 +141,7 @@ function displayMedia() {
 
 function displayTools() {
     document.getElementById("table").innerHTML =
-    tableIntro('Various useful tools.')
+    tableIntro('Various useful tools.', false)
     + '<tr><td>Japanese [word]</td>'
     + '<td>Translate a word in both japanese and english</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Translation [language] [sentence/link to image]</td>'
@@ -148,7 +157,7 @@ function displayTools() {
 
 function displayDiscord() {
     document.getElementById("table").innerHTML =
-    tableIntro('Various interractions with Discord.')
+    tableIntro('Various interractions with Discord.', false)
     + '<tr><td>Infos [user]</td>'
     + '<td>Give informations about an user</td><td>Communication</td><td>None</td></tr>'
     + '<tr><td>BotInfos</td>'
