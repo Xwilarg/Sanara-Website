@@ -1,3 +1,26 @@
+document.addEventListener("DOMContentLoaded", function() {
+    if (window.location.href.includes('?')) {
+        let parsing = new URLSearchParams(window.location.href.split('?')[1]);
+        if (parsing.has("page")) {
+            displayPage(parsing.get("page"));
+        }
+    }
+});
+
+function displayPage(pageName) {
+    switch (pageName.toLowerCase())
+    {
+        case "discord": displayDiscord(); break;
+        case "game": displayGame(); break;
+        case "image": displayImage(); break;
+        case "japan": displayJapan(); break;
+        case "media": displayMedia(); break;
+        case "radio": displayRadio(); break;
+        case "settings": displaySettings(); break;
+        case "tools": displayTools(); break;
+    }
+}
+
 function tableIntro(introLine, displayNbOfPlayers) {
     return '<nav id="intro">' + introLine + '</nav><table><tr><th>Name</th><th id="description'+ (displayNbOfPlayers ? 'Small' : '') + '">Description</th>' + (displayNbOfPlayers ? '<th id="small">Nb of players</th>' : '') + '<th>Sub-module</th><th>Availability</th></tr>';
 }
