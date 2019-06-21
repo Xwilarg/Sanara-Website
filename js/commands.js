@@ -132,7 +132,7 @@ function displaySettings() {
 function displayMedia() {
     document.getElementById("table").innerHTML =
     tableIntro('Interract with various medias.', false)
-    + '<tr><td>Xkcd [(optional) comic id]</td>'
+    + '<tr><td>Xkcd [(optional) comic id/last]</td>'
     + '<td>Give a random xkcd comic</td><td>Xkcd</td><td>None</td></tr>'
     + '<tr><td>Youtube [keywords]</td>'
     + '<td>Give a YouTube video given some keywords</td><td>Youtube</td><td>None</td></tr>'
@@ -148,7 +148,7 @@ function displayTools() {
     + '<td>Translate a sentence in the language given</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Urban [word]</td>'
     + '<td>Define a word using Urban Dictionnary</td><td>Linguistic</td><td>None</td></tr>'
-    + '<tr><td>Color [RGB/Hexa/Name]</td>'
+    + '<tr><td>Color [(optional) RGB/Hexa/Name]</td>'
     + '<td>Display a color along with it RGB and Hexadecimal values</td><td>Code</td><td>None</td></tr>'
     + '<tr><td>Shell [command]</td>'
     + '<td>Explain the different parts of a Shell command</td><td>Code</td><td>None</td></tr>'
