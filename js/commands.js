@@ -167,6 +167,8 @@ function displayTools() {
     tableIntro('Various useful tools.', false)
     + '<tr><td>Japanese [word]</td>'
     + '<td>Translate a word in both japanese and english</td><td>Linguistic</td><td>None</td></tr>'
+    + '<tr><td>Kanji [word]</td>'
+    + '<td>Get information about a kanji</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Translation [language] [sentence/link to image]</td>'
     + '<td>Translate a sentence in the language given</td><td>Linguistic</td><td>None</td></tr>'
     + '<tr><td>Urban [word]</td>'
