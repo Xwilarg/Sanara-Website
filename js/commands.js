@@ -86,6 +86,8 @@ function displayGame() {
     + '<td>Play the anime guess game (you need to identify an anime from an excerpt of it)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play pokemon</td>'
     + '<td>Play the Pokemon game (you need to identify pokemons by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Play girlsfrontline</td>'
+    + '<td>Play the Girl\'s Frontline game (you need to identify T-Dolls by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Score</td>'
     + '<td>Display your best scores compared to the other guilds</td><td>N/A</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Cancel</td>'

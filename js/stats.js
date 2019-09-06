@@ -186,6 +186,7 @@ function drawScores() {
         datas["azurlane"][0], datas["azurlane"][2], datas["azurlane"][4],
         datas["fatego"][0], datas["fatego"][2], datas["fatego"][4],
         datas["pokemon"][0], datas["pokemon"][2], datas["pokemon"][4],
+        datas["girlsfrontline"][0], datas["girlsfrontline"][2], datas["girlsfrontline"][4],
         datas["general"][0], datas["general"][2], datas["general"][4], datas["general"][6], datas["general"][8]
     ];
     let nameToColor = {};
@@ -275,11 +276,22 @@ function drawScores() {
 
     data = google.visualization.arrayToDataTable([
         ["Server's name", 'Score', { role: 'style' }],
-        [names[21], parseInt(datas["general"][1]), nameToColor[names[21]]],
-        [names[22], parseInt(datas["general"][3]), nameToColor[names[22]]],
-        [names[23], parseInt(datas["general"][5]), nameToColor[names[23]]],
-        [names[24], parseInt(datas["general"][7]), nameToColor[names[24]]],
-        [names[25], parseInt(datas["general"][9]), nameToColor[names[25]]],
+        [names[21], parseInt(datas["girlsfrontline"][1]), nameToColor[names[21]]],
+        [names[22], parseInt(datas["girlsfrontline"][3]), nameToColor[names[22]]],
+        [names[23], parseInt(datas["girlsfrontline"][5]), nameToColor[names[23]]],
+    ]);
+    options.title = 'Best scores (Girl\'s Frontline guess game)';
+    options.legend.position = 'none';
+    chart = new google.visualization.ColumnChart(document.getElementById('scoreschart8'));
+    chart.draw(data, options);
+
+    data = google.visualization.arrayToDataTable([
+        ["Server's name", 'Score', { role: 'style' }],
+        [names[24], parseInt(datas["general"][1]), nameToColor[names[24]]],
+        [names[25], parseInt(datas["general"][3]), nameToColor[names[25]]],
+        [names[26], parseInt(datas["general"][5]), nameToColor[names[26]]],
+        [names[27], parseInt(datas["general"][7]), nameToColor[names[27]]],
+        [names[28], parseInt(datas["general"][9]), nameToColor[names[28]]],
     ]);
     options.title = 'Global game ranking';
     options.legend.position = 'none';
