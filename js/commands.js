@@ -88,6 +88,8 @@ function displayGame() {
     + '<td>Play the Pokemon game (you need to identify pokemons by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play girlsfrontline</td>'
     + '<td>Play the Girl\'s Frontline game (you need to identify T-Dolls by an image)</td><td>1</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Play reversi</td>'
+    + '<td>Play the Reversi game (you need to capture opponent\'s disks)</td><td>2</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Score</td>'
     + '<td>Display your best scores compared to the other guilds</td><td>N/A</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Cancel</td>'
@@ -101,7 +103,7 @@ function displayGame() {
     + tableOutro()
     + '<div>Note: if you feel like you don\'t have enough time to answer, you can add \'easy\' at the end of the command.<br/>'
     + 'For the anime game, you can also add \'full\' to have more anime names (way harder).<br/>'
-    + 'Make note that your scores aren\'t saved if you use the \'full\' or \'easy\' option.<br/><br/>'
+    + 'Some games also have additional difficulties available, such as \'crop\' (only display half of the image)<br/><br/>'
     + 'To play against someone else, add \'multiplayer\' at the end of the command.<br/>'
     + 'For all solo game the final score is shared with the guild so anyone can play with you.</div>';
 }
