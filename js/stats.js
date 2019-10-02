@@ -29,6 +29,13 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "https://api.zirk.eu/bots.php?name=Sanara", true);
 xmlhttp.send();
 
+function getCurrentDate() {
+    let now = new Date();
+    let paris = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    paris.setHours(paris.getHours() + 2);
+    return paris;
+}
+
 function addZero(nb) {
     return ((nb < 10) ? ('0' + nb) : (nb));
 }
@@ -56,7 +63,7 @@ function getElement(arr, elem1, elem2) {
 
 function drawCommandServs() {
     let values = [];
-    let currentDate = new Date();
+    let currentDate = getCurrentDate();
     for (let i = 0; i < 10; i++) {
         values.push(currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1)) + addZero(currentDate.getDate()) + addZero(currentDate.getHours()));
         currentDate.setHours(currentDate.getHours() - 1);
@@ -83,7 +90,7 @@ function drawCommandServs() {
 
 function drawUsesChart() {
     let values = [];
-    let currentDate = new Date();
+    let currentDate = getCurrentDate();
     for (let i = 0; i < 10; i++) {
         values.push(currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1)) + addZero(currentDate.getDate()) + addZero(currentDate.getHours()));
         currentDate.setHours(currentDate.getHours() - 1);
@@ -103,7 +110,7 @@ function drawUsesChart() {
 }
 
 function drawTotalUsage() {
-    let currentDate = new Date();
+    let currentDate = getCurrentDate();
     let now = currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1));
     let modules = response.message.modules;
 
@@ -131,7 +138,7 @@ function drawTotalUsage() {
 }
 
 function drawErrors() {
-    let currentDate = new Date();
+    let currentDate = getCurrentDate();
     let now = currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1)) + addZero(currentDate.getDate());
     let errors = response.message.errors[now];
 
@@ -300,7 +307,7 @@ function drawScores() {
 }
 
 function drawGames() {
-    let currentDate = new Date();
+    let currentDate = getCurrentDate();
     let now = currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1));
     let games = response.message.games[now];
 
@@ -323,7 +330,7 @@ function drawGames() {
 }
 
 function drawBoorus() {
-    let currentDate = new Date();
+    let currentDate = getCurrentDate();
     let now = currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1));
     let games = response.message.booru[now];
 
