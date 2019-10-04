@@ -102,8 +102,10 @@ function displayGame() {
     + '<td>Force a multiplayer game to start</td><td>N/A</td><td>Game</td><td>None</td></tr>'
     + tableOutro()
     + '<div>Note: if you feel like you don\'t have enough time to answer, you can add \'easy\' at the end of the command.<br/>'
+    + 'Some game also have additional difficulties:<br/>'
     + 'For the anime game, you can also add \'full\' to have more anime names (way harder).<br/>'
-    + 'Some games also have additional difficulties available, such as \'crop\' (only display half of the image)<br/><br/>'
+    + 'Quizz based game can have the option \'crop\' that display only half of the image.<br/>'
+    + 'They can also have the \'shadow\' option that only display the shadow of the image.<br/><br/>'
     + 'To play against someone else, add \'multiplayer\' at the end of the command.<br/>'
     + 'For all solo game the final score is shared with the guild so anyone can play with you.</div>';
 }
