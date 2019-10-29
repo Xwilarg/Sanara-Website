@@ -60,6 +60,8 @@ function displayJapan() {
     + '<td>Give information about an anime</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Manga [name]</td>'
     + '<td>Give information about a manga</td><td>Anime/Manga</td><td>None</td></tr>'
+    + '<tr><td>Source [url/image]</td>'
+    + '<td>Give the name of an anime from an image coming from it</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Kancolle charac [shipgirl]</td>'
     + '<td>Give informations about a shipgirl from KanColle wikia</td><td>Kantai Collection</td><td>None</td></tr>'
     + '<tr><td>Kancolle drop [shipgirl]</td>'
