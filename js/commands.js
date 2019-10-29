@@ -32,6 +32,8 @@ function tableOutro() {
 function displayImage() {
     document.getElementById("table").innerHTML =
     tableIntro('Get images and various other related stuff.', false)
+    + '<tr><td>Source [url/image]</td>'
+    + '<td>Give the source of an image</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Safebooru [(optional)tags]</td>'
     + '<td>Request a random image from <a href="https://safebooru.org">Safebooru</a> (only SFW images)</td><td>Booru</td><td>None</td></tr>'
     + '<tr><td>Konachan [(optional)tags]</td>'
@@ -60,7 +62,7 @@ function displayJapan() {
     + '<td>Give information about an anime</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Manga [name]</td>'
     + '<td>Give information about a manga</td><td>Anime/Manga</td><td>None</td></tr>'
-    + '<tr><td>Source [url/image]</td>'
+    + '<tr><td>AnimeSource [url/image]</td>'
     + '<td>Give the name of an anime from an image coming from it</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Kancolle charac [shipgirl]</td>'
     + '<td>Give informations about a shipgirl from KanColle wikia</td><td>Kantai Collection</td><td>None</td></tr>'
