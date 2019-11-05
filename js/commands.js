@@ -22,7 +22,7 @@ function displayPage(pageName) {
 }
 
 function tableIntro(introLine, displayNbOfPlayers) {
-    return '<nav id="intro">' + introLine + '</nav><table><tr><th>Name</th><th id="description'+ (displayNbOfPlayers ? 'Small' : '') + '">Description</th>' + (displayNbOfPlayers ? '<th id="small">Nb of players</th>' : '') + '<th>Sub-module</th><th>Availability</th></tr>';
+    return '<nav id="intro">' + introLine + '</nav><table><tr><th>Name</th><th id="description'+ (displayNbOfPlayers ? 'Small' : '') + '">Description</th>' + (displayNbOfPlayers ? '<th id="small">Nb of players</th>' : '') + '<th>Sub-module</th><th>Restriction</th></tr>';
 }
 
 function tableOutro() {
@@ -148,17 +148,17 @@ function displaySettings() {
     + '<tr><td>Logs</td>'
     + '<td>Get the last changes about the bot</td><td>Information</td><td>None</td></tr>'
     + '<tr><td>Language [language]</td>'
-    + '<td>Set the language of the bot for this guild</td><td>Settings</td><td>Guild owner only</td></tr>'
+    + '<td>Set the language of the bot for this guild</td><td>Settings</td><td>Guild Admin only</td></tr>'
     + '<tr><td>Prefix [(optional) prefix]</td>'
-    + '<td>Set the prefix of the bot for this guild</td><td>Settings</td><td>Guild owner only</td></tr>'
+    + '<td>Set the prefix of the bot for this guild</td><td>Settings</td><td>Guild Admin only</td></tr>'
     + '<tr><td>Reload language</td>'
     + '<td>Reload translation language files</td><td>Settings</td><td>Bot owner only</td></tr>'
     + '<tr><td>Exit [(optional) name]</td>'
     + '<td>Leave the guild given in parameter or the current one if none specified</td><td>Settings</td><td>Bot owner only</td></tr>'
     + '<tr><td>Enable [module name/all]</td>'
-    + '<td>Enable a module</td><td>Settings</td><td>Guild owner only</td></tr>'
+    + '<td>Enable a module</td><td>Settings</td><td>Guild Admin only</td></tr>'
     + '<tr><td>Disable [module name/all]</td>'
-    + '<td>Disable a module</td><td>Settings</td><td>Guild owner only</td></tr>'
+    + '<td>Disable a module</td><td>Settings</td><td>Guild Admin only</td></tr>'
     + '<tr><td>ResetDb [(optional) name]</td>'
     + '<td>Reset the database of the guild given in parameter or the current one if none specified</td><td>Settings</td><td>Bot owner only</td></tr>'
     + '<tr><td>Eval</td>'
