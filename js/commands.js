@@ -52,6 +52,8 @@ function displayImage() {
     + '<td>Request a manga doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Cosplay [(optional)tags]</td>'
     + '<td>Request a cosplay from <a href="https://e-hentai.org">E-Hentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
+    + '<tr><td>AdultVideo [(optional)tag]</td>'
+    + '<td>Request a porn video from <a href="https://www5.javmost.com">JavMost</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + tableOutro();
 }
 
