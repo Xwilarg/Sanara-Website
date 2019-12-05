@@ -98,6 +98,8 @@ function displayGame() {
     + '<td>Play the Pokemon game (you need to identify pokemons by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play girlsfrontline</td>'
     + '<td>Play the Girl\'s Frontline game (you need to identify T-Dolls by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Play destinychild</td>'
+    + '<td>Play the Destiny Child guess game (you need to identify Child by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play reversi</td>'
     + '<td>Play the Reversi game (you need to capture opponent\'s disks)</td><td>2</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Score</td>'

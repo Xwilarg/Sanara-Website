@@ -294,11 +294,22 @@ function drawScores() {
 
     data = google.visualization.arrayToDataTable([
         ["Server's name", 'Score', { role: 'style' }],
-        [names[24], parseInt(datas["general"][1]), nameToColor[names[24]]],
-        [names[25], parseInt(datas["general"][3]), nameToColor[names[25]]],
-        [names[26], parseInt(datas["general"][5]), nameToColor[names[26]]],
-        [names[27], parseInt(datas["general"][7]), nameToColor[names[27]]],
-        [names[28], parseInt(datas["general"][9]), nameToColor[names[28]]],
+        [names[24], parseInt(datas["destinychild"][1]), nameToColor[names[24]]],
+        [names[25], parseInt(datas["destinychild"][3]), nameToColor[names[25]]],
+        [names[26], parseInt(datas["destinychild"][5]), nameToColor[names[26]]],
+    ]);
+    options.title = 'Best scores (Destiny Child guess game)';
+    options.legend.position = 'none';
+    chart = new google.visualization.ColumnChart(document.getElementById('scoreschart9'));
+    chart.draw(data, options);
+
+    data = google.visualization.arrayToDataTable([
+        ["Server's name", 'Score', { role: 'style' }],
+        [names[24], parseInt(datas["general"][1]), nameToColor[names[27]]],
+        [names[25], parseInt(datas["general"][3]), nameToColor[names[28]]],
+        [names[26], parseInt(datas["general"][5]), nameToColor[names[29]]],
+        [names[27], parseInt(datas["general"][7]), nameToColor[names[30]]],
+        [names[28], parseInt(datas["general"][9]), nameToColor[names[31]]],
     ]);
     options.title = 'Global game ranking';
     options.legend.position = 'none';
