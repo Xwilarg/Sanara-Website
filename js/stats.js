@@ -194,6 +194,7 @@ function drawScores() {
         datas["fatego"][0], datas["fatego"][2], datas["fatego"][4],
         datas["pokemon"][0], datas["pokemon"][2], datas["pokemon"][4],
         datas["girlsfrontline"][0], datas["girlsfrontline"][2], datas["girlsfrontline"][4],
+        datas["destinychild"][0], datas["destinychild"][2], datas["destinychild"][4],
         datas["general"][0], datas["general"][2], datas["general"][4], datas["general"][6], datas["general"][8]
     ];
     let nameToColor = {};
@@ -305,11 +306,11 @@ function drawScores() {
 
     data = google.visualization.arrayToDataTable([
         ["Server's name", 'Score', { role: 'style' }],
-        [names[24], parseInt(datas["general"][1]), nameToColor[names[27]]],
-        [names[25], parseInt(datas["general"][3]), nameToColor[names[28]]],
-        [names[26], parseInt(datas["general"][5]), nameToColor[names[29]]],
-        [names[27], parseInt(datas["general"][7]), nameToColor[names[30]]],
-        [names[28], parseInt(datas["general"][9]), nameToColor[names[31]]],
+        [names[27], parseInt(datas["general"][1]), nameToColor[names[27]]],
+        [names[28], parseInt(datas["general"][3]), nameToColor[names[28]]],
+        [names[29], parseInt(datas["general"][5]), nameToColor[names[29]]],
+        [names[30], parseInt(datas["general"][7]), nameToColor[names[30]]],
+        [names[31], parseInt(datas["general"][9]), nameToColor[names[31]]],
     ]);
     options.title = 'Global game ranking';
     options.legend.position = 'none';
