@@ -180,11 +180,6 @@ function drawServersChart() {
 function drawScores() {
     let datas = response.message.bestScores;
 
-    let colors = [
-        "#00ff00", "#ff00ff", "#800000", "#000080", "#808000",
-        "#ffa500", "#ffc0cb", "#800080", "#008000", "#ff0000",
-        "#c0c0c0", "#ffff00", "#ff00ff", "#ffd700"
-    ];
     let names = [
         datas["shiritori"][0], datas["shiritori"][2], datas["shiritori"][4],
         datas["anime"][0], datas["anime"][2], datas["anime"][4],
@@ -198,11 +193,11 @@ function drawScores() {
         datas["general"][0], datas["general"][2], datas["general"][4], datas["general"][6], datas["general"][8]
     ];
     let nameToColor = {};
-    let index = 0;
     names.forEach(function(name) {
-        if (nameToColor[name] == undefined)
-            nameToColor[name] = colors[index];
-        index++;
+        if (name === names[27]) nameToColor[name] = "#ffd700";
+        else if (name === names[28]) nameToColor[name] = "#c0c0c0";
+        else if (name === names[29]) nameToColor[name] = "#b87333";
+        else nameToColor[name] = "#3366cc";
     });
 
     let data = google.visualization.arrayToDataTable([
