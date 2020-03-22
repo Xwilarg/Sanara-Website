@@ -89,7 +89,7 @@ function displayGame() {
     + '<tr><td>Play fatego</td>'
     + '<td>Play the Fate GO guess game (you need to identify characters by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play booru</td>'
-    + '<td>Play the booru game (you need to identify tag of Gelbooru images)</td><td>1</td><td>Game</td><td>NSFW channel only</td></tr>'
+    + '<td>Play the booru game (you need to identify tag of Gelbooru images)</td><td>1+</td><td>Game</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Play anime</td>'
     + '<td>Play the anime guess game (you need to identify an anime from an excerpt of it)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play pokemon</td>'
