@@ -189,7 +189,7 @@ function drawScores() {
         datas["fatego"][0], datas["fatego"][2], datas["fatego"][4],
         datas["pokemon"][0], datas["pokemon"][2], datas["pokemon"][4],
         datas["girlsfrontline"][0], datas["girlsfrontline"][2], datas["girlsfrontline"][4],
-        datas["destinychild"][0], datas["destinychild"][2], datas["destinychild"][4],
+        datas["arknights"][0], datas["arknights"][2], datas["arknights"][4],
         datas["general"][0], datas["general"][2], datas["general"][4], datas["general"][6], datas["general"][8]
     ];
     let nameToColor = {};
@@ -290,11 +290,11 @@ function drawScores() {
 
     data = google.visualization.arrayToDataTable([
         ["Server's name", 'Score', { role: 'style' }],
-        [names[24], parseInt(datas["destinychild"][1]), nameToColor[names[24]]],
-        [names[25], parseInt(datas["destinychild"][3]), nameToColor[names[25]]],
-        [names[26], parseInt(datas["destinychild"][5]), nameToColor[names[26]]],
+        [names[24], parseInt(datas["arknights"][1]), nameToColor[names[24]]],
+        [names[25], parseInt(datas["arknights"][3]), nameToColor[names[25]]],
+        [names[26], parseInt(datas["arknights"][5]), nameToColor[names[26]]],
     ]);
-    options.title = 'Best scores (Destiny Child guess game)';
+    options.title = 'Best scores (Arknights guess game)';
     options.legend.position = 'none';
     chart = new google.visualization.ColumnChart(document.getElementById('scoreschart9'));
     chart.draw(data, options);

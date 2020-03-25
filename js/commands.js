@@ -84,6 +84,8 @@ function displayGame() {
     + '<td>Play the shiritori game (you need to find a japanese word beginning by the ending of the previous one)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play kancolle</td>'
     + '<td>Play the KanColle guess game (you need to identify shipgirls by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Play arknights</td>'
+    + '<td>Play the Arknights guess game (you need to identify operators by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play azurlane</td>'
     + '<td>Play the Azur Lane guess game (you need to identify shipgirls by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play fatego</td>'
