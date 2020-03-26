@@ -164,12 +164,12 @@ function drawServersChart() {
     let datas = response.message.serversBiggest;
 
     let data = google.visualization.arrayToDataTable([
-        ["Server's name", 'Users', 'Bots'],
-        [datas[1][0], parseInt(datas[1][1]), parseInt(datas[1][2])],
-        [datas[2][0], parseInt(datas[2][1]), parseInt(datas[2][2])],
-        [datas[3][0], parseInt(datas[3][1]), parseInt(datas[3][2])],
-        [datas[4][0], parseInt(datas[4][1]), parseInt(datas[4][2])],
-        [datas[5][0], parseInt(datas[5][1]), parseInt(datas[5][2])],
+        ["Server's name", 'Users'],
+        [datas[1][0], parseInt(datas[1][1])],
+        [datas[2][0], parseInt(datas[2][1])],
+        [datas[3][0], parseInt(datas[3][1])],
+        [datas[4][0], parseInt(datas[4][1])],
+        [datas[5][0], parseInt(datas[5][1])],
     ]);
 
     options.title = 'Server population (Ignoring \'Discord Bot List\' server)';
