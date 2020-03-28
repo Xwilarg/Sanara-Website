@@ -86,3 +86,7 @@ th span {
 th a {
     text-decoration: none;
 }
+
+.red {
+    background-color: rgb(170, 52, 52);
+}
