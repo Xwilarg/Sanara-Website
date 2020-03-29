@@ -131,6 +131,8 @@ function displayRadio() {
     + '<td>Display current playlist</td><td>Radio</td><td>None</td></tr>'
     + '<tr><td>Radio skip</td>'
     + '<td>Skip the song currently played</td><td>Radio</td><td>None</td></tr>'
+    + '<tr><td>Radio remove [name/index]</td>'
+    + '<td>Remove the song given in parameter</td><td>Radio</td><td>None</td></tr>'
     + '<tr><td>Radio stop</td>'
     + '<td>Stop the radio and leave the vocal channel</td><td>Radio</td><td>None</td></tr>'
     + tableOutro();
