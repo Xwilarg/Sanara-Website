@@ -7,13 +7,15 @@ body > span {
     width: 300px;
     height: 500px;
     border: 1px grey solid;
-    display: inline-block;
-    text-align: center;
+    display: inline-flex;
     cursor: pointer;
+    justify-content: center;
 }
 
 span > img {
-    height: inherit;
+    max-width: 300px;
+    max-height: 500px;
+    object-fit: contain;
 }
 
 #popup {
