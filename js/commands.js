@@ -50,6 +50,8 @@ function displayImage() {
     + '<td>Get more information about an image previously given by Sanara</td><td>Booru</td><td>None</td></tr>'
     + '<tr><td>Doujinshi [(optional)tags]</td>'
     + '<td>Request a manga doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
+    + '<tr><td>Download [doujinshi id]</td>'
+    + '<td>Download a doujinshi in ZIP format</td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Cosplay [(optional)tags]</td>'
     + '<td>Request a cosplay from <a href="https://e-hentai.org">E-Hentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>AdultVideo [(optional)tag]</td>'
