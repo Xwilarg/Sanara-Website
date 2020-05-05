@@ -155,6 +155,8 @@ function displaySettings() {
     + '<td>Get the bot invite link</td><td>Information</td><td>None</td></tr>'
     + '<tr><td>Logs</td>'
     + '<td>Get the last changes about the bot</td><td>Information</td><td>None</td></tr>'
+    + '<tr><td>Error [id]</td>'
+    + '<td> Give explanations about an error</td><td>Information</td><td>None</td></tr>'
     + '<tr><td>Language [language]</td>'
     + '<td>Set the language of the bot for this guild</td><td>Settings</td><td>Guild Admin only</td></tr>'
     + '<tr><td>Prefix [(optional) prefix]</td>'
