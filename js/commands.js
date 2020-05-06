@@ -213,5 +213,7 @@ function displayDiscord() {
     + '<td>Give informations about the bot</td><td>Communication</td><td>None</td></tr>'
     + '<tr><td>Quote [(optional) Message ID]</td>'
     + '<td>Quote a message</td><td>Communication</td><td>None</td></tr>'
+    + '<tr><td>Poll [title] [choice 1] [choice 2] [etc...]</td>'
+    + '<td>Create a poll</td><td>Communication</td><td>None</td></tr>'
     + tableOutro();
 }
