@@ -68,6 +68,8 @@ function displayJapan() {
     + '<td>Give information about an anime</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Manga [name]</td>'
     + '<td>Give information about a manga</td><td>Anime/Manga</td><td>None</td></tr>'
+    + '<tr><td>LN [name]</td>'
+    + '<td>Give information about a light novel</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Subscribe anime [channel]</td>'
     + '<td>Choose a channel to receive a message everytimes a new anime is released</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Unsubscribe anime</td>'
