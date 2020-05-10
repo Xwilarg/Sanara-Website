@@ -7,26 +7,32 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function displayPage(pageName) {
-    switch (pageName.toLowerCase())
-    {
-        case "discord": displayDiscord(); break;
-        case "game": displayGame(); break;
-        case "image": displayImage(); break;
-        case "japan": displayJapan(); break;
-        case "media": displayMedia(); break;
-        case "radio": displayRadio(); break;
-        case "settings": displaySettings(); break;
-        case "tools": displayTools(); break;
-    }
-}
-
 function tableIntro(introLine, displayNbOfPlayers) {
     return '<nav id="intro">' + introLine + '</nav><table><tr><th>Name</th><th id="description'+ (displayNbOfPlayers ? 'Small' : '') + '">Description</th>' + (displayNbOfPlayers ? '<th id="small">Nb of players</th>' : '') + '<th>Sub-module</th><th>Restriction</th></tr>';
 }
 
 function tableOutro() {
     return '</table>';
+}
+
+function displayCommunity() {
+    document.getElementById("table").innerHTML =
+    tableIntro('You must at first do the "Profile show" command to access these features.', false)
+    + '<tr><td>Profile get [(optional) user]</td>'
+    + '<td>Get the profile of an user ; you must begin by generating your own to use this module</td><td>Community</td><td>None</td></tr>'
+    + '<tr><td>Profile description [(optional) description]</td>'
+    + '<td>Change the description of your profile</td><td>Community</td><td>None</td></tr>'
+    + '<tr><td>Profile color [color]</td>'
+    + '<td>Change the background color of your profile</td><td>Community</td><td>None</td></tr>'
+    + '<tr><td>Profile visibility [public/friend only/private]</td>'
+    + '<td>Change the visibility of your profile</td><td>Community</td><td>None</td></tr>'
+    + '<tr><td>Profile friend [user]</td>'
+    + '<td>Add an user to your friends</td><td>Community</td><td>None</td></tr>'
+    + '<tr><td>Profile unfriend [user]</td>'
+    + '<td>Remove an user from your friends</td><td>Community</td><td>None</td></tr>'
+    + '<tr><td>Profile save all</td>'
+    + '<td>Force all profiles to be saved in the database</td><td>Community</td><td>Bot owner only</td></tr>'
+    + tableOutro();
 }
 
 function displayImage() {
@@ -48,7 +54,7 @@ function displayImage() {
     + '<td>Request a random image from <a href="https://e926.net/">E926</a> (mostly furries, only SFW images)</td><td>Booru</td><td>None</td></tr>'
     + '<tr><td>Tags [id]</td>'
     + '<td>Get more information about an image previously given by Sanara</td><td>Booru</td><td>None</td></tr>'
-    + '<tr><td>Doujinshi [(optional)tags]</td>'
+    + '<tr><td>Doujinshi [(optional)tags / id]</td>'
     + '<td>Request a manga doujinshi from <a href="https://nhentai.net">Nhentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>Download doujinshi [doujinshi id]</td>'
     + '<td>Download a doujinshi in ZIP format</td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
