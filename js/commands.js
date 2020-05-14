@@ -82,8 +82,8 @@ function displayJapan() {
     + '<td>Remove a subscription</td><td>Anime/Manga</td><td>None</td></tr>'
     + '<tr><td>Kancolle charac [shipgirl]</td>'
     + '<td>Give informations about a shipgirl from KanColle wikia</td><td>Kantai Collection</td><td>None</td></tr>'
-    + '<tr><td>Kancolle drop [shipgirl]</td>'
-    + '<td>Give informations about where you can find a shipgirl in Kancolle</td><td>Kantai Collection</td><td>None</td></tr>'
+    + '<tr><td>Arknights charac [name]</td>'
+    + '<td>Give informations an Arknights\'s operator</td><td>Arknights</td><td>None</td></tr>'
     + '<tr><td>Vn [visual novel]</td>'
     + '<td>Give informations about a visual novel</td><td>Vn</td><td>None</td></tr>'
     + tableOutro();
