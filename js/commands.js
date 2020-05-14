@@ -223,5 +223,7 @@ function displayDiscord() {
     + '<td>Quote a message</td><td>Communication</td><td>None</td></tr>'
     + '<tr><td>Poll [title] [choice 1] [choice 2] [etc...]</td>'
     + '<td>Create a poll</td><td>Communication</td><td>None</td></tr>'
+    + '<tr><td>Calc [expression]</td>'
+    + '<td>Calculate basic math expression</td><td>Communication</td><td>None</td></tr>'
     + tableOutro();
 }
