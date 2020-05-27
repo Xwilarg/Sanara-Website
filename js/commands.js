@@ -64,7 +64,16 @@ function displayImage() {
     + '<td>Request a cosplay from <a href="https://e-hentai.org">E-Hentai</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
     + '<tr><td>AdultVideo [(optional)tag]</td>'
     + '<td>Request a porn video from <a href="https://www5.javmost.com">JavMost</a></td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
-    + tableOutro();
+    + '<tr><td>Subscribe doujinshi [channel] [(optional)full] [(optional)whitelist/blacklist]</td>'
+    + '<td>Choose a channel to receive a message everytimes a new doujinshi is released. You can also provides tags that will be whitelisted or blacklisted. The full option remove all default blacklisted tags.</td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
+    + '<tr><td>Unsubscribe doujinshi</td>'
+    + '<td>Remove a subscription</td><td>Doujinshi</td><td>NSFW channel only</td></tr>'
+    + tableOutro()
+    + '<div><h3>How to apply tags for subcription command</h3><br/>'
+    + 'Sanara won\'t show any doujinshi that have blacklisted tags. If you have a whitelist, she\'ll also only show doujinshi that have at least one of the whitelisted tag<br/>'
+    + 'Some tags are blacklisted by default (you can disable that by doing the subscribe command with the \'full\' argument). You can see their full list here: <a target="_blank" href="https://github.com/Xwilarg/Sanara/blob/master/SanaraV2/Subscription/SubscriptionTags.cs#L115">https://github.com/Xwilarg/Sanara/blob/master/SanaraV2/Subscription/SubscriptionTags.cs#L115</a><br/>'
+    + 'You can add tags to whitelist by doing +tagName (example: +english) and to blacklist by doing (example: -x-ray). You can also remove a tag that was previously added with *tag (example: *futanari)<br/>'
+    + 'If your tag contains a space in it, put it between double quote (example: "+full color"), make sure to have the correct tag or the functionnality won\'t work!</div>';
 }
 
 function displayJapan() {
