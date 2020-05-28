@@ -234,5 +234,7 @@ function displayDiscord() {
     + '<td>Create a poll</td><td>Communication</td><td>None</td></tr>'
     + '<tr><td>Calc [expression]</td>'
     + '<td>Calculate basic math expression</td><td>Communication</td><td>None</td></tr>'
+    + '<tr><td>Complete [sentence]</td>'
+    + '<td>Continue a sentence using machine learning</td><td>Communication</td><td>None</td></tr>'
     + tableOutro();
 }
