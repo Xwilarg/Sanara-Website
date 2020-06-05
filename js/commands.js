@@ -218,6 +218,8 @@ function displayTools() {
     + '<td>Display a color along with it RGB and Hexadecimal values</td><td>Code</td><td>None</td></tr>'
     + '<tr><td>Shell [command]</td>'
     + '<td>Explain the different parts of a Shell command</td><td>Code</td><td>None</td></tr>'
+    + '<tr><td>Increase [link to an image]</td>'
+    + '<td>Make an image twice bigger</td><td>Code</td><td>None</td></tr>'
     + tableOutro();
 }
 
