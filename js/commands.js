@@ -186,8 +186,6 @@ function displaySettings() {
     + '<td>Enable a module</td><td>Settings</td><td>Guild Admin only</td></tr>'
     + '<tr><td>Disable [module name/all]</td>'
     + '<td>Disable a module</td><td>Settings</td><td>Guild Admin only</td></tr>'
-    + '<tr><td>ResetDb [(optional) name]</td>'
-    + '<td>Reset the database of the guild given in parameter or the current one if none specified</td><td>Settings</td><td>Bot owner only</td></tr>'
     + '<tr><td>Eval</td>'
     + '<td>Evaluate the given expression</td><td>Settings</td><td>Bot owner only</td></tr>'
     + tableOutro();
