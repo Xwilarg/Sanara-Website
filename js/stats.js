@@ -197,11 +197,11 @@ function drawScores() {
     ];
     let nameToColor = {};
     names.forEach(function(name) {
-        if (name === names[27]) nameToColor[name] = "#ffd700";
-        else if (name === names[28]) nameToColor[name] = "#c0c0c0";
-        else if (name === names[29]) nameToColor[name] = "#b87333";
-        else if (name === names[30]) nameToColor[name] = "#17bf0a";
-        else if (name === names[31]) nameToColor[name] = "#244615";
+        if (name === names[30]) nameToColor[name] = "#ffd700";
+        else if (name === names[31]) nameToColor[name] = "#c0c0c0";
+        else if (name === names[32]) nameToColor[name] = "#b87333";
+        else if (name === names[33]) nameToColor[name] = "#17bf0a";
+        else if (name === names[34]) nameToColor[name] = "#244615";
         else nameToColor[name] = "#3366cc";
     });
 
