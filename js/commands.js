@@ -109,6 +109,8 @@ function displayGame() {
     + '<td>Play the KanColle guess game (you need to identify shipgirls by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play arknights</td>'
     + '<td>Play the Arknights guess game (you need to identify operators by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Play arkaudio</td>'
+    + '<td>Play the Arknights audio guess game (you need to identify operators by an intro line). You must be in a vocal channel for this to work.</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play azurlane</td>'
     + '<td>Play the Azur Lane guess game (you need to identify shipgirls by an image)</td><td>1+</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Play fatego</td>'
@@ -133,6 +135,8 @@ function displayGame() {
     + '<td>Leave a multiplayer lobby</td><td>N/A</td><td>Game</td><td>None</td></tr>'
     + '<tr><td>Start</td>'
     + '<td>Force a multiplayer game to start</td><td>N/A</td><td>Game</td><td>None</td></tr>'
+    + '<tr><td>Replay</td>'
+    + '<td>(For audio quizzes) Replay the song file</td><td>N/A</td><td>Game</td><td>None</td></tr>'
     + tableOutro()
     + '<div>Note: if you feel like you don\'t have enough time to answer, you can add \'easy\' at the end of the command.<br/>'
     + 'Some game also have additional difficulties:<br/>'
@@ -238,5 +242,7 @@ function displayDiscord() {
     + '<td>Calculate basic math expression</td><td>Communication</td><td>None</td></tr>'
     + '<tr><td>Complete [sentence]</td>'
     + '<td>Continue a sentence using machine learning</td><td>Communication</td><td>None</td></tr>'
+    + '<tr><td>Inspire</td>'
+    + '<td> Send a randomly generated \'inspirational\' quote</td><td>Communication</td><td>None</td></tr>'
     + tableOutro();
 }
