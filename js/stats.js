@@ -16,11 +16,12 @@ xmlhttp.onreadystatechange = function() {
         response = JSON.parse(this.responseText);
 
         google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawCommandServs);
-        google.charts.setOnLoadCallback(drawUsesChart);
-        google.charts.setOnLoadCallback(drawTotalUsage);
+
         google.charts.setOnLoadCallback(drawErrors);
         google.charts.setOnLoadCallback(drawServersChart);
+        google.charts.setOnLoadCallback(drawTotalUsage);
+        google.charts.setOnLoadCallback(drawCommandServs);
+
         google.charts.setOnLoadCallback(drawGames);
         google.charts.setOnLoadCallback(drawBoorus);
         google.charts.setOnLoadCallback(drawScores);
@@ -69,73 +70,63 @@ function drawCommandServs() {
         currentDate.setHours(currentDate.getHours() - 1);
     }
 
-    let val = response.message.serverModules;
+    let val = response.message.serverCommands;
 
-    let arrData = [['Date', 'Anime/Manga', 'Arknights', 'Booru', 'Code', 'Communication', 'Community', 'Doujinshi', 'Game', 'Information', 'Kantai Collection',
-        'Linguistic', 'Radio', 'Settings', 'Visual Novel', 'Xkcd', 'YouTube']];
+    let modules = [];
+    let arr = ['Date'];
+
+    for (let key in val) {
+        for (let key2 in val[key]) {
+            if (!modules.includes(key2)) {
+                modules.push(key2);
+                arr.push(key2);
+            }
+        }
+    }
+
+    let arrData = [arr];
 
     for (let i = 9; i >= 0; i--) {
-        arrData.push(['H-' + i,
-        getElement(val, values[i], 'AnimeManga'), getElement(val, values[i], 'Arknights'), getElement(val, values[i], 'Booru'), getElement(val, values[i], 'Code'), getElement(val, values[i], 'Communication'),
-		getElement(val, values[i], 'Community'), getElement(val, values[i], 'Doujinshi'), getElement(val, values[i], 'Game'), getElement(val, values[i], 'Information'),
-		getElement(val, values[i], 'KantaiCollection'), getElement(val, values[i], 'Linguistic'), getElement(val, values[i], 'Radio'), getElement(val, values[i], 'Settings'),
-		getElement(val, values[i], 'VisualNovel'), getElement(val, values[i], 'Xkcd'), getElement(val, values[i], 'Youtube')]);
+        let tmpArr = ['H-' + i];
+
+        for (let t in modules) {
+            tmpArr.push(getElement(val, values[i], modules[t]));
+        }
+
+        arrData.push(tmpArr);
     }
 
     let data = google.visualization.arrayToDataTable(arrData);
     options.title = 'Modules usage';
-    let chart = new google.visualization.LineChart(document.getElementById('commandServsChart'));
-    chart.draw(data, options);
-}
-
-function drawUsesChart() {
-    let values = [];
-    let currentDate = getCurrentDate();
-    for (let i = 0; i < 10; i++) {
-        values.push(currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1)) + addZero(currentDate.getDate()) + addZero(currentDate.getHours()));
-        currentDate.setHours(currentDate.getHours() - 1);
-    }
-            
-    let val = response.message.commandServs;
-    let arrData = [['Date', 'Nb of guilds']];
-
-    for (let i = 9; i >= 0; i--) {
-        arrData.push(['H-' + i, Object.keys(getElementOnce(val, values[i])).length]);
-    }
-
-    let data = google.visualization.arrayToDataTable(arrData);
-    options.title = 'Module usage per guilds';
-    let chart = new google.visualization.AreaChart(document.getElementById('useschart'));
+    let chart = new google.visualization.LineChart(document.getElementById('commandsChart'));
     chart.draw(data, options);
 }
 
 function drawTotalUsage() {
     let currentDate = getCurrentDate();
     let now = currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1));
-    let modules = response.message.modules;
+    let val = response.message.commands;
 
-    let data = google.visualization.arrayToDataTable([
-        ['Modules', 'Utilisations'],
-        ['Anime/Manga',     	getElement(modules, now, 'AnimeManga')],
-        ['Arknights',     	    getElement(modules, now, 'Arknights')],
-        ['Booru',     			getElement(modules, now, 'Booru')],
-        ['Code',     			getElement(modules, now, 'Code')],
-        ['Communication',   	getElement(modules, now, 'Communication')],
-        ['Community',           getElement(modules, now, 'Community')],
-        ['Doujinshi',     		getElement(modules, now, 'Doujinshi')],
-        ['Game',      			getElement(modules, now, 'Game')],
-        ['Information',   	    getElement(modules, now, 'Information')],
-        ['Kantai Collection', 	getElement(modules, now, 'KantaiCollection')],
-        ['Linguistic',      	getElement(modules, now, 'Linguistic')],
-        ['Radio',      			getElement(modules, now, 'Radio')],
-        ['Settings',      		getElement(modules, now, 'Settings')],
-        ['Visual Novel',      	getElement(modules, now, 'VisualNovel')],
-        ['Xkcd',      			getElement(modules, now, 'Xkcd')],
-        ['YouTube',      		getElement(modules, now, 'Youtube')]
-    ]);
+    let modules = [];
+    let arr = [];
+    arr.push(['Modules', 'Utilisations']);
 
-    options.title = 'Module usage (monthly)';
-    let chart = new google.visualization.PieChart(document.getElementById('moduleschart'));
+    for (let key in val) {
+        for (let key2 in val[key]) {
+            if (!modules.includes(key2)) {
+                modules.push(key2);
+            }
+        }
+    }
+
+    for (let t in modules) {
+        arr.push([modules[t], getElement(val, now, modules[t])]);
+    }
+
+    let data = google.visualization.arrayToDataTable(arr);
+
+    options.title = 'Commands usage (monthly)';
+    let chart = new google.visualization.PieChart(document.getElementById('commandsChart2'));
     chart.draw(data, options);
 }
 
