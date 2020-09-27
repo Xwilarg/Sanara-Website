@@ -28,14 +28,453 @@
         <nav id="table">
             <p>🡄&emsp;Click on a module to display information about it</p>
         </nav>
-        <table id="help" hidden>
+        <table id="administration" hidden>
             <thead>
                 <th>Name</th>
                 <th>Arguments</th>
                 <th>Description</th>
-                <th>Aliases</th>
                 <th>Restriction</th>
+                <th>Example</th>
             </thead>
+            <tbody>
+                <tr>
+                    <td>Help</td>
+                    <td>(module/submodule)</td>
+                    <td>Display the help.</td>
+                    <td></td>
+                    <td></td>
+                    <td>Help information</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td></td>
+                    <td>Display various information about the bot.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Premium</td>
+                    <td></td>
+                    <td>Get information about the premium features.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>V3</td>
+                    <td></td>
+                    <td>Get information about the transition from the V2 to the V3.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Logs</td>
+                    <td></td>
+                    <td>Get the latest commits made to the bot.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Gdpr</td>
+                    <td></td>
+                    <td>Get the latest commits made to the bot.</td>
+                    <td></td>
+                    <td>Admin</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Prefix</td>
+                    <td>(prefix)</td>
+                    <td>Change the bot prefix. Is no information is provided, display the current one.</td>
+                    <td></td>
+                    <td>Admin</td>
+                    <td>Prefix s.</td>
+                </tr>
+                <tr>
+                    <td>Anonymize</td>
+                    <td>(value)</td>
+                    <td>Set if your guild name can be displayed on Sanara stats page. Is no information is provided, display the current value.</td>
+                    <td></td>
+                    <td>Admin</td>
+                    <td>Anonymize true</td>
+                </tr>
+                <tr>
+                    <td>Exit</td>
+                    <td>[server name]</td>
+                    <td>Leave the server given in parameter.</td>
+                    <td></td>
+                    <td>Owner</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Disable</td>
+                    <td>[module name]</td>
+                    <td>Disable a module for this server.</td>
+                    <td></td>
+                    <td>Admin</td>
+                    <td>Disable nsfw</td>
+                </tr>
+                <tr>
+                    <td>Enable</td>
+                    <td>[module name]</td>
+                    <td>Enable a module for this server.</td>
+                    <td></td>
+                    <td>Admin</td>
+                    <td>Enable media</td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="entertainment" hidden>
+            <thead>
+                <th>Name</th>
+                <th>Arguments</th>
+                <th>Description</th>
+                <th>Restriction</th>
+                <th>Example</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inspire</td>
+                    <td></td>
+                    <td>Get a random 'inspirational' quote using machine learning.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Complete</td>
+                    <td>[sentence]</td>
+                    <td>Complete the given sentence using machine learning.</td>
+                    <td></td>
+                    <td>Complete Why can't cats just</td>
+                </tr>
+                <tr>
+                    <td>Manga</td>
+                    <td>[name]</td>
+                    <td>Get information about a manga.</td>
+                    <td></td>
+                    <td>Manga made in abyss</td>
+                </tr>
+                <tr>
+                    <td>Anime</td>
+                    <td>[name]</td>
+                    <td>Get information about an anime.</td>
+                    <td></td>
+                    <td>Anime nichijou</td>
+                </tr>
+                <tr>
+                    <td>Light novel</td>
+                    <td>[name]</td>
+                    <td>Get information about a light novel.</td>
+                    <td></td>
+                    <td>Light novel so I'm a spider so what</td>
+                </tr>
+                <tr>
+                    <td>Subscribe anime</td>
+                    <td>[text channel]</td>
+                    <td>Get information on all new anime in to a channel.</td>
+                    <td>Admin</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Unsubscribe anime</td>
+                    <td></td>
+                    <td>Remove an anime subscription.</td>
+                    <td>Admin</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Source</td>
+                    <td>[image]</td>
+                    <td>Get the source of an image.</td>
+                    <td></td>
+                    <td>Source https://sanara.zirk.eu/img/Gallery/001_01.jpg</td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="game" hidden>
+            <thead>
+                <th>Name</th>
+                <th>Arguments</th>
+                <th>Description</th>
+                <th>Restriction</th>
+                <th>Example</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Play</td>
+                    <td>[shiritori/arknights/kancolle/girlsfrontline/fatego/pokemon] (audio)</td>
+                    <td>Play a game. Rules will be displayed when you start it.</td>
+                    <td></td>
+                    <td>Play arknights audio</td>
+                </tr>
+                <tr>
+                    <td>Cancel</td>
+                    <td></td>
+                    <td>Cancel a game running in this channel.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Replay</td>
+                    <td></td>
+                    <td>Replay the audio for the current game.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Delete cache</td>
+                    <td></td>
+                    <td>Delete the cache of a game.</td>
+                    <td>Owner</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="nsfw" hidden>
+            <thead>
+                <th>Name</th>
+                <th>Arguments</th>
+                <th>Description</th>
+                <th>Restriction</th>
+                <th>Example</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Safebooru</td>
+                    <td>(tags)</td>
+                    <td>Get a random image from Safebooru (only SFW images).</td>
+                    <td></td>
+                    <td>Safebooru kantai_collection</td>
+                </tr>
+                <tr>
+                    <td>E926</td>
+                    <td>(tags)</td>
+                    <td>Get a random image from E926 (only SFW furry images).</td>
+                    <td></td>
+                    <td>E926 short_hair</td>
+                </tr>
+                <tr>
+                    <td>Gelbooru</td>
+                    <td>(tags)</td>
+                    <td>Get a random image from Gelbooru (all kinds of anime images).</td>
+                    <td>NSFW</td>
+                    <td>Gelbooru cirno</td>
+                </tr>
+                <tr>
+                    <td>E621</td>
+                    <td>(tags)</td>
+                    <td>Get a random image from E621 (only furry images).</td>
+                    <td>NSFW</td>
+                    <td>E621 swimsuit</td>
+                </tr>
+                <tr>
+                    <td>Rule34</td>
+                    <td>(tags)</td>
+                    <td>Get a random image from Rule34 (mostly weird images).</td>
+                    <td>NSFW</td>
+                    <td>Rule34 cat_ears</td>
+                </tr>
+                <tr>
+                    <td>Konachan</td>
+                    <td>(tags)</td>
+                    <td>Get a random image from Konachan (only images that can be used as wallpaper).</td>
+                    <td>NSFW</td>
+                    <td>Konachan landscape</td>
+                </tr>
+                <tr>
+                    <td>Booru</td>
+                    <td>(tags)</td>
+                    <td>Get a random image from Safebooru or Gelbooru depending if you're on a NSFW or not.</td>
+                    <td></td>
+                    <td>Booru arknights</td>
+                </tr>
+                <tr>
+                    <td>Tags</td>
+                    <td>[id]</td>
+                    <td>Get information about the tags of an image that was sent.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Cosplay</td>
+                    <td>(tags)</td>
+                    <td>Get a random cosplay.</td>
+                    <td>NSFW</td>
+                    <td>Cosplay Ikazuchi</td>
+                </tr>
+                <tr>
+                    <td>Doujinshi</td>
+                    <td>(tags/id)</td>
+                    <td>Get a random doujinshi. You can either provide some tags or directly give its id.</td>
+                    <td>NSFW</td>
+                    <td>Doujinshi kancolle yuri</td>
+                </tr>
+                <tr>
+                    <td>Download doujinshi</td>
+                    <td>[id]</td>
+                    <td>Download a doujinshi given its id.</td>
+                    <td>NSFW</td>
+                    <td>Download doujin 321633</td>
+                </tr>
+                <tr>
+                    <td>Subscribe doujinshi</td>
+                    <td>[text channel] (tags)</td>
+                    <td>Get information on all new doujinshi in a channel.</td>
+                    <td>NSFW Admin</td>
+                    <td>Subscribe doujinshi +\"ke-ta\"</td>
+                </tr>
+                <tr>
+                    <td>Unsubscribe doujinshi</td>
+                    <td></td>
+                    <td>Remove a doujinshi subscription.</td>
+                    <td>NSFW Admin</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="radio" hidden>
+            <thead>
+                <th>Name</th>
+                <th>Arguments</th>
+                <th>Description</th>
+                <th>Restriction</th>
+                <th>Example</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Radio start</td>
+                    <td></td>
+                    <td>Make Sanara join your vocal channel.</td>
+                    <td>Premium</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Radio add</td>
+                    <td>[keywords/id/url]</td>
+                    <td>Add a music to the radio.</td>
+                    <td>Premium</td>
+                    <td>Radio add GgF9zH3Yv1I</td>
+                </tr>
+                <tr>
+                    <td>Radio remove</td>
+                    <td>[name/index]</td>
+                    <td>Remove a radio from the playlist.</td>
+                    <td></td>
+                    <td>Radio remove 1</td>
+                </tr>
+                <tr>
+                    <td>Radio skip</td>
+                    <td></td>
+                    <td>Skip the song that is currently being played.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Radio playlist</td>
+                    <td></td>
+                    <td>Display the current playlist.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="tool" hidden>
+            <thead>
+                <th>Name</th>
+                <th>Arguments</th>
+                <th>Description</th>
+                <th>Restriction</th>
+                <th>Example</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Quote</td>
+                    <td>(user/message)</td>
+                    <td>Quote the message if an user.</td>
+                    <td></td>
+                    <td>Quote Sanara#1537</td>
+                </tr>
+                <tr>
+                    <td>Poll</td>
+                    <td>[name] [choices - 1 to 9]</td>
+                    <td>Create a poll for users to choose between various choices.</td>
+                    <td></td>
+                    <td>Poll "Is cereal a soup or a salad" Soup Salad</td>
+                </tr>
+                <tr>
+                    <td>Info</td>
+                    <td>(user)</td>
+                    <td>Get information about an user from this server.</td>
+                    <td></td>
+                    <td>Info Sanara#1537</td>
+                </tr>
+                <tr>
+                    <td>BotInfo</td>
+                    <td></td>
+                    <td>Get information about the bot.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>ServerInfo</td>
+                    <td></td>
+                    <td>Get information about the server.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Invite</td>
+                    <td></td>
+                    <td>Get the bot invitation link.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Japanese</td>
+                    <td>[word]</td>
+                    <td>Get the meaning of a Japanese word, will also translate your word if you give it in english.</td>
+                    <td></td>
+                    <td>Japanese submarine</td>
+                </tr>
+                <tr>
+                    <td>Kanji</td>
+                    <td>[kanji]</td>
+                    <td>Get information about a kanji.</td>
+                    <td></td>
+                    <td>Kanji 艦</td>
+                </tr>
+                <tr>
+                    <td>Urban</td>
+                    <td>[word]</td>
+                    <td>Get the urban definition of a word.</td>
+                    <td>NSFW</td>
+                    <td>Urban bunny hop</td>
+                </tr>
+                <tr>
+                    <td>Translate</td>
+                    <td>[language] [sentence/image]</td>
+                    <td>Translate a sentence to the given language.</td>
+                    <td></td>
+                    <td>Translate en 空は青いです</td>
+                </tr>
+                <tr>
+                    <td>Calc</td>
+                    <td>[operation]</td>
+                    <td>Evaluate a basic math operation and return the result.</td>
+                    <td></td>
+                    <td>Calc 72 * 32</td>
+                </tr>
+                <tr>
+                    <td>Color</td>
+                    <td>[name/RGB/Hex]</td>
+                    <td>Evaluate a basic math operation and return the result.</td>
+                    <td></td>
+                    <td>Color 125 32 200</td>
+                </tr>
+            </tbody>
         </table>
     </body>
 </html>
