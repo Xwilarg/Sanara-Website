@@ -21,10 +21,10 @@ xmlhttp.onreadystatechange = function() {
         google.charts.setOnLoadCallback(drawServersChart);
         google.charts.setOnLoadCallback(drawTotalUsage);
         google.charts.setOnLoadCallback(drawCommandServs);
-
         google.charts.setOnLoadCallback(drawGames);
-        google.charts.setOnLoadCallback(drawBoorus);
-        google.charts.setOnLoadCallback(drawScores);
+
+        //google.charts.setOnLoadCallback(drawBoorus);
+        //google.charts.setOnLoadCallback(drawScores);
     }
 }
 xmlhttp.open("GET", "https://api.zirk.eu/bots.php?name=Sanara", true);
