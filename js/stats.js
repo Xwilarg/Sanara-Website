@@ -70,7 +70,7 @@ function drawCommandServs() {
         currentDate.setHours(currentDate.getHours() - 1);
     }
 
-    let val = response.message.serverCommands;
+    let val = response.message.commands;
 
     let modules = [];
     let arr = ['Date'];
