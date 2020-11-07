@@ -364,7 +364,7 @@ function drawGamePlayers() {
             let value = k.split(';')[1];
             let game = k.split(';')[0];
             if (game == keys[key]) {
-                currArray[parseInt(value)]++;
+                currArray[parseInt(value)] = games[k];
             }
         }
         sumArray.push(currArray);
