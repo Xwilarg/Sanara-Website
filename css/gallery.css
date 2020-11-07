@@ -36,3 +36,8 @@ span > img {
     border-radius: 5px;
     padding: 10px;
 }
+
+#contributeInfo {
+    position: absolute;
+    bottom: 0;
+}
