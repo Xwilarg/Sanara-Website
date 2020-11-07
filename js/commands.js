@@ -65,7 +65,7 @@ http.onreadystatechange = function ()
             `<td>${args}</td>` +
             `<td>${c.Description}</td>` +
             `<td>${c.Restriction}</td>` +
-            `<td>${c.SubmoduleName}</td>` +
+            `<td>${c.Example == null ? "" : c.Example}</td>` +
             '</tr>';
         }
     }
