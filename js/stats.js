@@ -97,7 +97,7 @@ function drawCommandServs() {
     }
 
     let data = google.visualization.arrayToDataTable(arrData);
-    options.title = 'Modules usage';
+    options.title = 'Commands usage';
     let chart = new google.visualization.LineChart(document.getElementById('commandsChart'));
     chart.draw(data, options);
 }
