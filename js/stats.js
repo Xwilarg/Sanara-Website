@@ -18,10 +18,10 @@ xmlhttp.onreadystatechange = function() {
         google.charts.load('current', {'packages':['corechart']});
 
         google.charts.setOnLoadCallback(drawErrors);
-        google.charts.setOnLoadCallback(drawServersChart);
         google.charts.setOnLoadCallback(drawTotalUsage);
         google.charts.setOnLoadCallback(drawCommandServs);
         google.charts.setOnLoadCallback(drawGames);
+        google.charts.setOnLoadCallback(drawGamePlayers);
 
         //google.charts.setOnLoadCallback(drawBoorus);
         //google.charts.setOnLoadCallback(drawScores);
@@ -150,23 +150,6 @@ function drawErrors() {
 
     options.title = 'Errors encountered (daily)';
     let chart = new google.visualization.PieChart(document.getElementById('errorsChart'));
-    chart.draw(data, options);
-}
-
-function drawServersChart() {
-    let datas = response.message.serversBiggest;
-
-    let data = google.visualization.arrayToDataTable([
-        ["Server's name", 'Users'],
-        [datas[1][0], parseInt(datas[1][1])],
-        [datas[2][0], parseInt(datas[2][1])],
-        [datas[3][0], parseInt(datas[3][1])],
-        [datas[4][0], parseInt(datas[4][1])],
-        [datas[5][0], parseInt(datas[5][1])],
-    ]);
-
-    options.title = 'Server population (Ignoring \'Discord Bot List\' server)';
-    let chart = new google.visualization.ColumnChart(document.getElementById('serverschart'));
     chart.draw(data, options);
 }
 
@@ -340,6 +323,57 @@ function drawGames() {
 
     options.title = 'Games played (monthly)';
     let chart = new google.visualization.PieChart(document.getElementById('gameschart'));
+    chart.draw(data, options);
+}
+
+function drawGamePlayers() {
+    let currentDate = getCurrentDate();
+    let now = currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1));
+    let games = response.message.gamesPlayers[now];
+
+    let max = 1;
+    let keys = new Array();
+    for (let key in games) { // Getting max number
+        if (!key.includes(';')) { // Exception handling
+            continue;
+        }
+        let value = key.split(';')[1];
+        let game = key.split(';')[0];
+        if (value > max) max = value;
+        if (!keys.includes(game)) {
+            keys.push(game);
+        }
+    }
+    let sumArray = new Array();
+    let array = new Array();
+    array.push("Nb of player");
+    for (let i = 1; i <= max; i++) {
+        array.push(i.toString());
+    }
+    sumArray.push(array);
+    for (let key in keys) {
+        let currArray = new Array();
+        currArray.push(keys[key]);
+        for (let i = 1; i <= max; i++) {
+            currArray.push(0);
+        }
+        for (let k in games) { // Getting max number
+            if (!k.includes(';')) { // Exception handling
+                continue;
+            }
+            let value = k.split(';')[1];
+            let game = k.split(';')[0];
+            if (game == keys[key]) {
+                currArray[parseInt(value)]++;
+            }
+        }
+        sumArray.push(currArray);
+    }
+
+    let data = google.visualization.arrayToDataTable(sumArray);
+    options.isStacked = true;
+    options.title = 'Games per players (monthly)';
+    let chart = new google.visualization.ColumnChart(document.getElementById('gamePlayersChart'));
     chart.draw(data, options);
 }
 
