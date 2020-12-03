@@ -105,7 +105,7 @@ function drawCommandServs() {
 function drawTotalUsage() {
     let currentDate = getCurrentDate();
     let now = currentDate.getFullYear().toString().substr(-2) + addZero((currentDate.getMonth() + 1));
-    let val = response.message.commands;
+    let val = response.message.monthCommands;
 
     let modules = [];
     let arr = [];
