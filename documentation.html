@@ -15,12 +15,10 @@
             <li><a href="index.html"><img alt="Back" src="img/Back.png"></a></li>
         </ul>
         <div>
-            Sanara is made with various services, you are free to contribute to any of them by opening an issue or doing a pull request:
+            You can contribute to either Sanara or this website from their GitHub, feel free to open pull requests and issues if you need to:
             <ul>
-                <li><a href="https://github.com/Xwilarg/Sanara">Sanara</a>: The bot that you interact with on Discord</li>
-                <li><a href="https://github.com/Xwilarg/Sanara-Website">Sanara-Website</a>: This website</li>
-                <li><a href="https://github.com/Xwilarg/Bots-db">Bots-db</a>: Backend that Sanara use to send her stats to this website</li>
-                <li><a href="https://github.com/Xwilarg/Discord-Utils">Discord-Utils</a>: Various tools I'm using through all my bots</li>
+                <li><a href="https://github.com/Xwilarg/Sanara">Sanara</a></li>
+                <li><a href="https://github.com/Xwilarg/Sanara-Website">Sanara-Website</a></li>
             </ul>
             <br/><hr/><br/>
             <h3 onclick="trigger('Collected')">Data collected by Sanara<span id="rightCollected" class="right">▼</span></h3>
@@ -28,15 +26,14 @@
                 <h4>Datas collected for stats</h4>
                 All these datas are available <a href="https://sanara.zirk.eu/stats.html">in the stats page</a>.
                 <ul>
-                    <li>Commands and modules used</li>
+                    <li>Commands used</li>
                     <li>Unexpected errors encountered by the bot</li>
-                    <li>Scores on the game module</li>
                 </ul>
                 <br/>
                 <h4>Datas collected for guild preference</h4>
                 All these datas are available by doing the 'GDPR' command</a>.
                 <ul>
-                    <li>Guild configuration (anonymize setting, module availability, bot prefix, subscriptions, settings specific to some modules)</li>
+                    <li>Guild configuration (anonymize setting, subscriptions, settings specific to some modules)</li>
                     <li>Game scores and ids of the contributors</li>
                 </ul>
                 <br/>
@@ -44,14 +41,11 @@
                 All these datas are saved when an exception occured (when a command fail in an unexpecting way) and are automatically deleted after 30 days.<br/>
                 These are private and only the bot owner can access them.
                 <ul>
-                    <li>Name of the command launched, along with the user that launched it, the guild/channel where he is and the message sent</li>
+                    <li>Command used</li>
                     <li>Crash stacktrace (exact point where the exception occured in the code)</li>
                     <li>Date when the error occured</li>
                     <li>Error message</li>
                 </ul>
-                <br/>
-                <h4>Datas collected by this website</h4>
-                This website use Google Analytics, you can see all data they collect on their <a href="https://developers.google.com/analytics/resources/concepts/gaConceptsTrackingOverview">tracking code overview page</a>.
             </span>
             <br/><hr/><br/>
             <h3 onclick="trigger('Remove')">Request / Delete all the data about me<span id="rightRemove" class="right">▼</span></h3>
@@ -62,44 +56,66 @@
             <h3 onclick="trigger('Clone')">Using Sanara by cloning the repository<span id="rightClone" class="right">▼</span></h3>
             <span id="explanationClone" hidden>
                 At first you'll need to clone <a href="https://github.com/Xwilarg/Sanara">Sanara repository</a> recursively:<br>
-                git clone --recurse-submodules https://github.com/Xwilarg/Sanara.git<br/><br/>
-                Then install rethinkdb and start it.<br/>
-                If you want to use audio related commands, you'll also need opus, libsodium, ffmpeg and youtube-dl.<br/>
-                The next step is to create the credendial file, go in SanaraV3/bin/Debug/Keys and create a file named "Credentials.json", this file will contains all your keys in the JSON format.<br/>
-                There is one mandatory value:
+                <pre>
+git clone --recurse-submodules https://github.com/Xwilarg/Sanara.git
+                </pre>
+                You will then need to install rethinkdb, which is what the bot used for its database:
                 <ul>
-                    <li>BotToken: Your bot token (you can obtain it on the <a href="https://discordapp.com/developers/applications/">Discord developper portail</a>)</li>
+                    <li>Linux: <a href="https://rethinkdb.com/docs/install/">https://rethinkdb.com/docs/install/</a></li>
+                    <li>Windows: <a href="https://github.com/srh/rethinkdb/releases/download/v2.4.0-srh-win-1/rethinkdb-v2.4.0-srh-win-1-Release_x64.zip">https://github.com/srh/rethinkdb/releases/download/v2.4.0-srh-win-1/rethinkdb-v2.4.0-srh-win-1-Release_x64.zip</a></li>
                 </ul>
-                All the others fields are optional, you can see the full list in <a href="https://github.com/Xwilarg/Sanara/blob/master/SanaraV3/Credentials.cs">the Credentials file</a>.<br/>
-                Once it's done you can launch the project (either by launching Visual Studio or by using the dotnet command)<br/>
-                If you want to keep the bot alive, you can use the services in the Services/ folder with systemctl (start Sanara.service)
+                Then you can build the bot, but before starting you'll need to add the credentials for the various services<br/>
+                For that, go next to the executable (by default: Sanara/bin/Debug/net6.0) and create a folder called "Keys", inside create a file called "Credentials.json"<br/>
+                This file will contains all your keys, stored in JSON format<br/>
+                Only "BotToken" is mandatory, it'll contain your bot token that you can find on the <a href="https://discordapp.com/developers/applications/">Discord developper portail</a><br/><br/>
+                Others fields are:
+                <ul>
+                    <li>UploadWebsiteUrl: URL of the website used for download doujinshi/cosplay commands</li>
+                    <li>UploadWebsiteLocation: Local folder associated to UploadWebsiteUrl</li>
+                    <li>KitsuEmail: Email of your Kitsu account, allow NSFW search for anime/manga/light novel commands</li>
+                    <li>KitsuPassword: Password of KitsuEmail</li>
+                    <li>SentryKey: Sentry.io token, used for automatic crash report</li>
+                    <li>TopGgToken: Top.gg token, update guild count there</li>
+                    <li>MyDramaListApiKey: Token used for Drama command</li>
+                    <li>UnsplashToken: Token used for Photo command</li>
+                    <li>DebugGuild: ID of the guild you used to test stuff, if given, slash commands when only be created in this guild when the debugger is attached</li>
+                </ul>
+                For all Google related services (Translation and Vision), you'll also need the JSON created from their developer page, put it in the Keys/ folder and rename it GoogleAPI.json
                 <br/>
             </span>
             <br/><hr/><br/>
             <h3 onclick="trigger('Improve')">Improving Sanara<span id="rightImprove" class="right">▼</span></h3>
             <span id="explanationImprove" hidden>
-                To begin with, you'll need to fork the repository and to setup the bot as described in the previous step.<br/><br/>
-                Please make note that the bot is made using Discord.Net in C#, before starting you'll need some knowledge with them.<br/>
-                You can then access Sanara's code inside the SanaraV3/ folder:
+                To improve Sanara yourself you'll need some C# and Discord.Net knowledge.<br/>
+                If you are ready, you can setup the bot as described in the previous step.<br/><br/>
+                Here is some explanation of what you can find inside the Sanara/ folder:
                 <ul>
-                    <li>Attribute: Preconditional check used for commands</li>
-                    <li>CustomClass: Custom classes used in parameter of the commands</li>
-                    <li>Database: Contains all functions that interract with the database</li>
-                    <li>Discord-Utils: Submodule containing various utility functions</li>
+                    <li>Database: Contains all functions that interact with the database</li>
+                    <li>Diaporama: Diaporama allows a command to display an embed containing a list of data, in which you can naviguate using buttons</li>
                     <li>Exception: Custom exceptions used within Sanara</li>
+                    <ul>
+                        <li>CommandFailed: Thrown when something failed within a command (like an invalid parameter value), caught and then show an error to the user</li>
+                        <li>GameLost: Used within the game module, make the current game to fail</li>
+                        <li>InvalidGameAnswer: Used within the game module, indicate that the current user answer is invalid</li>
+                    </ul>
                     <li>Game: Sanara's game module</li>
-                    <li>Help: Informations used for the "help" command</li>
+                    <ul>
+                        <li>Impl: Implementation of the games</li>
+                        <li>MultiplayerMode: Implementation of different way that multiplayer can be handled</li>
+                        <li>PostMode: Implementation of how messages must be sent on Discord</li>
+                        <li>PostMode: Implementation of how messages must be sent on Discord</li>
+                        <li>Preload: Allows to preload data when the bot start and keep them in cache</li>
+                    </ul>
+                    <li>Help: Export of Help information for this website</li>
                     <li>LanguageResource: JSON files used to convert Romaji from/to Hiragana/Katakana</li>
                     <li>Module: All commands of Sanara split into various modules</li>
-                    <li>StatUpload: Functions that send data to <a href="https://sanara.zirk.eu/stats.html">Sanara's stat page</a></li>
-                    <li>Subscription: Functions related to the subscription commands</li>
-                    <li>TypeReader: Discord.NET parsers for some command parameters</li>
+                    <li>Subscription: Subscription follow a service and post message in a channel everytimes a new information is available</li>
                     <li>Constants.cs: Some constants used in the whole code</li>
-                    <li>Credentials.cs: Class used to parse your Credentials.json</li>
-                    <li>ErrorData.cs: Struct used for error report</li>
-                    <li>Log.cs: Functions used to log messages into the console</li>
-                    <li>Program.cs: Entry point of the program</li>
-                    <li>StaticObjects.cs: Static class containing lot of variables used through the code</li>
+                    <li>Credentials.cs: Deserialisation of Keys/Credentials.json</li>
+                    <li>Log.cs: Format and log messages, including errors</li>
+                    <li>Program.cs: Entry point and core of the bot</li>
+                    <li>StaticObjects.cs: Store static instance of variables that are used at many place in the code</li>
+                    <li>Utils.cs: Static methods that are used at various places in the code</li>
                 </ul>
             </span>
         </div>

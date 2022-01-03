@@ -29,11 +29,27 @@
     margin: 10px;
 }
 
+a:not(.button) {
+    text-decoration: none;
+    border-bottom: dotted 1px;
+    color: rgb(82, 94, 167);
+}
+
+a:not(.button):hover {
+    color: #EF6480;
+    border-bottom-color: transparent;
+}
+
 #invite-button {
     width: 300px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     font-size: 22px;
+}
+
+#button-group {
+    display: inline-block;
+    margin-top: 50px;
 }
 
 #sanara {
