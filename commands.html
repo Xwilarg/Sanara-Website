@@ -12,15 +12,10 @@
     <body>
         <ul id="menu">
             <li><a href="index.html"><img alt="Back" src="img/Back.png"></a></li>
+            <span style="font-size: 2em; margin-left: 2em;">This page is for the future implementation of slash commands on Sanara V4</span>
         </ul>
         <command-menu>
-            <ul>
-                <li onclick="displayAdministration()">Administration</li>
-                <li onclick="displayEntertainment()">Entertainment</li>
-                <li onclick="displayGame()">Game</li>
-                <li onclick="displayNSFW()">NSFW</li>
-                <li onclick="displayRadio()">Radio</li>
-                <li onclick="displayTool()">Tool</li>
+            <ul id="moduleList">
             </ul>
         </command-menu>
         <nav id="table">
@@ -29,22 +24,10 @@
         <table id="tableHelp" hidden>
             <thead>
                 <th>Name</th>
-                <th>Arguments</th>
                 <th>Description</th>
                 <th>Restriction</th>
-                <th>Example</th>
             </thead>
-            <tbody id="Administration" hidden>
-            </tbody>
-            <tbody id="Entertainment" hidden>
-            </tbody>
-            <tbody id="Game" hidden>
-            </tbody>
-            <tbody id="Nsfw" hidden>
-            </tbody>
-            <tbody id="Radio" hidden>
-            </tbody>
-            <tbody id="Tool" hidden>
+            <tbody id="documentation">
             </tbody>
         </table>
     </body>

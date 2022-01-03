@@ -59,29 +59,15 @@ th {
     width: 15%;
 }
 
-#description {
-    width: 55%;
-}
-
-#descriptionSmall {
-    width: 50%;
-}
-
-#small {
-    width: 5%;
-}
-
 td {
     height: 35px;
     padding-left: 10px;
 }
 
-#intro {
-    margin-left: 350px;
-    margin-top: 75px;
-    font-size: 18px;
-}
-
 h3 {
     margin-bottom: -15px;
+}
+
+#name {
+    text-transform: capitalize;
 }

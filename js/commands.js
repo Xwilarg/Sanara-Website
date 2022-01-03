@@ -1,14 +1,12 @@
 function displayPage(name) {
-    document.getElementById("tableHelp").hidden = false;
-    document.getElementById("Administration").hidden = true;
-    document.getElementById("Entertainment").hidden = true;
-    document.getElementById("Game").hidden = true;
-    document.getElementById("Nsfw").hidden = true;
-    document.getElementById("Radio").hidden = true;
-    document.getElementById("Tool").hidden = true;
     document.getElementById("table").hidden = true;
+    document.getElementById("tableHelp").hidden = false;
 
-    document.getElementById(name).hidden = false;
+    let html = "";
+    for (let e of data[name]) {
+        html += `<tr><td id="name">${e.Name}</td><td>${e.Description}</td><td>${e.Restrictions}</td></tr>`;
+    }
+    document.getElementById("documentation").innerHTML = html;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -20,53 +18,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function displayAdministration() {
-    displayPage("Administration");
-}
-
-function displayEntertainment() {
-    displayPage("Entertainment")
-}
-
-function displayGame() {
-    displayPage("Game");
-}
-
-function displayNSFW() {
-    displayPage("Nsfw");
-}
-
-function displayRadio() {
-    displayPage("Radio");
-}
-
-function displayTool() {
-    displayPage("Tool");
-}
+let data = {};
 
 let http = new XMLHttpRequest();
 http.open("GET", "php/getJson.php?file=Help", false);
 http.onreadystatechange = function ()
 {
-    if (this.readyState === 4 && this.status === 200) {
-        let json = JSON.parse(this.responseText);
-        for (j in json) {
-            var elem = json[j];
-            var c = elem.Item2;
-            let args = "";
-            for (index in c.Arguments) {
-                let arg = c.Arguments[index];
-                if (arg.Type == 0) args += "(" + arg.Content + ") ";
-                else args += "[" + arg.Content + "] ";
+    if (this.readyState === 4)
+    {
+        if (this.status === 200) {
+            let json = JSON.parse(this.responseText);
+            let modulesStr = "";
+            for (let e of json) {
+                modulesStr += `<li onclick="displayPage('${e.Name}')">${e.Name}</li>`;
+                data[e.Name] = e["Commands"];
             }
-            document.getElementById(elem.Item1).innerHTML +=
-            '<tr>' +
-            `<td>${c.CommandName}</td>` +
-            `<td>${args}</td>` +
-            `<td>${c.Description}</td>` +
-            `<td>${c.Restriction}</td>` +
-            `<td>${c.Example == null ? "" : c.Example}</td>` +
-            '</tr>';
+            document.getElementById("moduleList").innerHTML = modulesStr;
+        } else {
+            console.error(`Error ${this.status} while loading help`);
         }
     }
 };
