@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
 let data = {};
 
 let http = new XMLHttpRequest();
-http.open("GET", "php/getJson.php?file=Help", false);
+http.open("GET", "api/help.php", false);
 http.onreadystatechange = function ()
 {
     if (this.readyState === 4)
