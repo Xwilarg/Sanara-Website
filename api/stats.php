@@ -16,12 +16,10 @@ for ($i = 0; $i < 10; $i += 1) {
     $curr = new DateTime();
     $curr->sub(new DateInterval("PT" . strval($i) . "H"));
     array_push($commands, remove_id(r\db('Hanaki_stats')->table('Commands')->get($curr->format("YmdH"))->run($conn)));
-    array_push($nb_messages, remove_id(r\db('Hanaki_stats')->table('NbMessages')->get($curr->format("YmdH"))->run($conn)));
 }
 
 echo(json_encode(array(
     "guild_count"   => remove_id(r\db('Hanaki_stats')->table('GuildCount')->get($date)->run($conn)),
-    "nb_messages"   => $nb_messages,
     "errors"        => remove_id(r\db('Hanaki_stats')->table('Errors')->get($date)->run($conn)),
     "commands"      => $commands,
     "games"         => remove_id(r\db('Hanaki_stats')->table('Games')->get($date)->run($conn)),
