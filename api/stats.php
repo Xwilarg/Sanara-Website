@@ -10,11 +10,11 @@ function remove_id($array) {
 }
 
 echo(json_encode(array(
-    "GuildCount"    => remove_id(r\db('Hanaki_stats')->table('GuildCount')->get($date)->run($conn)),
-    "NbMessages"    => remove_id(r\db('Hanaki_stats')->table('NbMessages')->get($date)->run($conn)),
-    "Errors"        => remove_id(r\db('Hanaki_stats')->table('Errors')->get($date)->run($conn)),
-    "Commands"      => remove_id(r\db('Hanaki_stats')->table('Commands')->get($date)->run($conn)),
-    "Games"         => remove_id(r\db('Hanaki_stats')->table('Games')->get($date)->run($conn)),
-    "GamesPlayers"  => remove_id(r\db('Hanaki_stats')->table('GamesPlayers')->get($date)->run($conn)),
-    "Booru"         => remove_id(r\db('Hanaki_stats')->table('Booru')->get($date)->run($conn))
+    "guild_count"    => remove_id(r\db('Hanaki_stats')->table('GuildCount')->get($date)->run($conn)),
+    "nb_messages"    => remove_id(r\db('Hanaki_stats')->table('NbMessages')->get($date)->run($conn)),
+    "errors"        => remove_id(r\db('Hanaki_stats')->table('Errors')->get($date)->run($conn)),
+    "commands"      => remove_id(r\db('Hanaki_stats')->table('Commands')->get($date)->run($conn)),
+    "games"         => remove_id(r\db('Hanaki_stats')->table('Games')->get($date)->run($conn)),
+    "games_players"  => remove_id(r\db('Hanaki_stats')->table('GamesPlayers')->get($date)->run($conn)),
+    "booru"         => remove_id(r\db('Hanaki_stats')->table('Booru')->get($date)->run($conn))
 )));
