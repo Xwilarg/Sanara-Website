@@ -13,9 +13,10 @@ function remove_id($array) {
 $commands = array();
 $nb_messages = array();
 for ($i = 0; $i < 10; $i += 1) {
-    $curr = (new DateTime())->sub(new DateInterval("PT" . 1 . "H"));
-    array_push($commands, remove_id(r\db('Hanaki_stats')->table('Commands')->get($curr)->run($conn)));
-    array_push($nb_messages, remove_id(r\db('Hanaki_stats')->table('NbMessages')->get($curr)->run($conn)));
+    $curr = new DateTime();
+    $curr->sub(new DateInterval("PT" . strval($i) . "H"));
+    array_push($commands, remove_id(r\db('Hanaki_stats')->table('Commands')->get($curr->format("YmdH"))->run($conn)));
+    array_push($nb_messages, remove_id(r\db('Hanaki_stats')->table('NbMessages')->get($curr->format("YmdH"))->run($conn)));
 }
 
 echo(json_encode(array(
