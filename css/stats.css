@@ -1,9 +1,19 @@
-.container {
+.columns {
     margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.col-sm-6 div {
-    height: 300px;
+.col-full {
+    width: 95%;
+}
+.col-half {
+    width: 45%;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
 }
 
 text {
