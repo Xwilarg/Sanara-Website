@@ -31,9 +31,26 @@ html, body {
 }
 
 a {
-    color: #6f9eba;
+    color: #acccdf;
 }
 
 html {
     font-family: 'Open Sans', sans-serif;
+}
+
+#main {
+    margin-top: 5em;
+}
+
+body {
+    margin-bottom: 1.2em;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #114B5F;
+    width: 100%;
+    text-align: center;
+    font-size: .9em;
 }

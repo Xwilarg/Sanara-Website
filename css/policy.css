@@ -1,0 +1,14 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid white;
+    padding: 1em;
+}
+
+#head {
+    width: 20%;
+    font-weight: 600;
+}

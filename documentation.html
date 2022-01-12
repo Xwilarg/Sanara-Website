@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
         <script type="text/javascript" src="js/documentation.js"></script>
         <meta property="og:title" content="Sanara"/>
-        <meta property="og:description" content="Developer documentation and GDPR information"/>
+        <meta property="og:description" content="Developer documentation"/>
         <meta property="og:image" content="https://sanara.zirk.eu/img/Sanara.png"/>
     </head>
     <body>
@@ -23,34 +23,7 @@
             <br/><hr/><br/>
             <h3 onclick="trigger('Collected')">Data collected by Sanara<span id="rightCollected" class="right">▼</span></h3>
             <span id="explanationCollected" hidden>
-                <h4>Datas collected for stats</h4>
-                All these datas are available <a href="https://sanara.zirk.eu/stats.html">in the stats page</a>.
-                <ul>
-                    <li>Commands used</li>
-                    <li>Unexpected errors encountered by the bot</li>
-                </ul>
-                <br/>
-                <h4>Datas collected for guild preference</h4>
-                All these datas are available by doing the 'GDPR' command</a>.
-                <ul>
-                    <li>Guild configuration (anonymize setting, subscriptions, settings specific to some modules)</li>
-                    <li>Game scores and ids of the contributors</li>
-                </ul>
-                <br/>
-                <h4>Datas collected in case of error</h4>
-                All these datas are saved when an exception occured (when a command fail in an unexpecting way) and are automatically deleted after 30 days.<br/>
-                These are private and only the bot owner can access them.
-                <ul>
-                    <li>Command used</li>
-                    <li>Crash stacktrace (exact point where the exception occured in the code)</li>
-                    <li>Date when the error occured</li>
-                    <li>Error message</li>
-                </ul>
-            </span>
-            <br/><hr/><br/>
-            <h3 onclick="trigger('Remove')">Request / Delete all the data about me<span id="rightRemove" class="right">▼</span></h3>
-            <span id="explanationRemove" hidden>
-                Send me <a href="mailto:xwilarg@yahoo.fr">a mail</a> or contact me on Discord (Zirk#0001).
+                <a href="policy.html">Moved to Privacy Policy</a>
             </span>
             <br/><hr/><br/>
             <h3 onclick="trigger('Clone')">Using Sanara by cloning the repository<span id="rightClone" class="right">▼</span></h3>
@@ -120,4 +93,7 @@ git clone --recurse-submodules https://github.com/Xwilarg/Sanara.git
             </span>
         </div>
     </body>
+    <footer>
+        Sanara is a service made available under the <a href="https://github.com/Xwilarg/Sanara/blob/master/LICENSE">GNU General Public License v3.0</a>, by using it you accept our <a href="terms.html">Terms of Services</a> and <a href="privacy.html">Privacy Policy</a>
+    </footer>
 </html>
