@@ -1,7 +1,7 @@
 <?php
 require './vendor/autoload.php';
-error_reporting(0);
 header('Content-Type: application/json');
+error_reporting(0);
 $conn = r\connect('localhost');
 $now = new DateTime();
 
@@ -31,4 +31,7 @@ function getStats($name, $conn, $now) {
     );
 }
 
-echo(json_encode(getStats("Hanaki_stats", $conn, $now)));
+echo(json_encode(array(
+    "sanara" => getStats("Sanara_stats", $conn, $now),
+    "hanaki" => getStats("Hanaki_stats", $conn, $now)
+)));

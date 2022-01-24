@@ -37,9 +37,16 @@ function drawCommandServs() {
     let modules = ['Date'];
 
     // Headers
-    for (let val of response.commands) {
-        if (val !== null) {
-            for (let mod in val) {
+    for (let i = 0; i < 10; i++) {
+        if (response.sanara.commands[i] !== null) {
+            for (let mod in response.sanara.commands[i]) {
+                if (!modules.includes(mod)) {
+                    modules.push(mod);
+                }
+            }
+        }
+        if (response.hanaki.commands[i] !== null) {
+            for (let mod in response.hanaki.commands[i]) {
                 if (!modules.includes(mod)) {
                     modules.push(mod);
                 }
@@ -49,23 +56,26 @@ function drawCommandServs() {
 
     let arrData = [modules];
     // Values
-    let index = 9;
-    for (let val of response.commands.reverse()) {
+    for (let i = 9; i >= 0; i--) {
         let arr = [];
-        if (index === 0) {
+        if (i === 0) {
             arr.push("Now");
         } else {
-            arr.push(`-${index}H`);
+            arr.push(`-${i}H`);
         }
         for (let mod of modules.slice(1)) {
-            if (val === null || val[mod] === undefined) {
-                arr.push(0);
-            } else {
-                arr.push(val[mod]);
+            let value = 0;
+            let valS = response.sanara.commands[i];
+            let valH = response.sanara.commands[i];
+            if (valS !== null && valS[mod] !== undefined) {
+                value += valS[mod];
             }
+            if (valH !== null && valH[mod] !== undefined) {
+                value += valH[mod];
+            }
+            arr.push(value);
         }
         arrData.push(arr);
-        index--;
     }
 
     let data = google.visualization.arrayToDataTable(arrData);

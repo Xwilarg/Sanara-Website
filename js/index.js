@@ -3,11 +3,11 @@ function updateInfos() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             response = JSON.parse(this.responseText);
-            document.getElementById("cmdLaunched").innerHTML = response.commandsLastMonth;
-            document.getElementById("serverCount").innerHTML = response.serverCount;
+            document.getElementById("cmdLaunched").innerHTML = "TODO";
+            document.getElementById("serverCount").innerHTML = response.sanara.guild_count.count;
         }
     }
-    xmlhttp.open("GET", "https://api.zirk.eu/bots.php?name=Sanara&small=true", true);
+    xmlhttp.open("GET", "../api/stats.php", true);
     xmlhttp.send();
     let xmlhttp2 = new XMLHttpRequest();
     xmlhttp2.onreadystatechange = function() {
