@@ -182,7 +182,7 @@ function drawGames() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    options.title = 'Games played (monthly)';
+    options.title = 'Games played (daily)';
     let chart = new google.visualization.PieChart(document.getElementById('gamesChart'));
     chart.draw(data, options);
 }
@@ -190,7 +190,7 @@ function drawGames() {
 function drawGamePlayers() {
     let data = google.visualization.arrayToDataTable([]);
     options.isStacked = true;
-    options.title = 'Games per players (monthly)';
+    options.title = 'Games per players (daily)';
     let chart = new google.visualization.ColumnChart(document.getElementById('gamePlayersChart'));
     chart.draw(data, options);
 }
@@ -245,7 +245,7 @@ function drawBooru() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    options.title = 'Booru used (monthly)';
+    options.title = 'Booru used (daily)';
     let chart = new google.visualization.PieChart(document.getElementById('booruChart'));
     chart.draw(data, options);
 }
