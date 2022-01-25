@@ -22,6 +22,7 @@ xmlhttp.onreadystatechange = function() {
 
             google.charts.setOnLoadCallback(drawErrors);
             google.charts.setOnLoadCallback(drawCommandServs);
+            google.charts.setOnLoadCallback(drawCommandPerBot);
             google.charts.setOnLoadCallback(drawBooru);
             google.charts.setOnLoadCallback(drawGames);
             google.charts.setOnLoadCallback(drawGamePlayers);
@@ -67,7 +68,7 @@ function drawCommandServs() {
         for (let mod of modules.slice(1)) {
             let value = 0;
             let valS = response.sanara.commands[i];
-            let valH = response.sanara.commands[i];
+            let valH = response.hanaki.commands[i];
             if (valS !== null && valS[mod] !== undefined) {
                 value += valS[mod];
             }
@@ -85,6 +86,47 @@ function drawCommandServs() {
     chart.draw(data, options);
 }
 
+
+function drawCommandPerBot() {
+    let headers = ['Date', 'Sanara', 'Hanaki'];
+
+    let arrData = [headers];
+    // Values
+    for (let i = 29; i >= 0; i--) {
+        let arr = [];
+        if (i === 0) {
+            arr.push("Now");
+        } else {
+            arr.push(`-${i}H`);
+        }
+        if (response.sanara.commands[i] === null) {
+            arr.push(0);
+        } else {
+            let count = 0;
+            for (let val in response.sanara.commands[i]) {
+                count += response.sanara.commands[i][val];
+            }
+            arr.push(count);
+        }
+        if (response.hanaki.commands[i] === null) {
+            arr.push(0);
+        } else {
+            let count = 0;
+            for (let val in response.hanaki.commands[i]) {
+                count += response.hanaki.commands[i][val];
+            }
+            arr.push(count);
+        }
+        arrData.push(arr);
+    }
+    let data = google.visualization.arrayToDataTable(arrData);
+
+    options.isStacked = true;
+    options.title = 'Commands usage';
+    let chart = new google.visualization.ColumnChart(document.getElementById('commandsPerBotChart'));
+    chart.draw(data, options);
+}
+
 function drawErrors() {
     let array = new Array();
     array.push(new Array());
@@ -93,13 +135,13 @@ function drawErrors() {
     let i = 0;
     let dict = {};
     for (let key in response.sanara.errors) {
-        dict[key] = parseInt(response.sanara.errors[key]);
+        dict[key] = response.sanara.errors[key];
     }
     for (let key in response.hanaki.errors) {
         if (dict[key] === undefined) {
-            dict[key] = parseInt(response.hanaki.errors[key]);
+            dict[key] = response.hanaki.errors[key];
         } else {
-            dict[key] += parseInt(response.hanaki.errors[key]);
+            dict[key] += response.hanaki.errors[key]    ;
         }
     }
     for (let key in dict) {
@@ -123,13 +165,13 @@ function drawGames() {
     let i = 0;
     let dict = {};
     for (let key in response.sanara.games) {
-        dict[key] = parseInt(response.sanara.games[key]);
+        dict[key] = response.sanara.games[key];
     }
     for (let key in response.hanaki.games) {
         if (dict[key] === undefined) {
-            dict[key] = parseInt(response.hanaki.games[key]);
+            dict[key] = response.hanaki.games[key];
         } else {
-            dict[key] += parseInt(response.hanaki.games[key]);
+            dict[key] += response.hanaki.games[key];
         }
     }
     for (let key in dict) {
@@ -161,13 +203,13 @@ function drawDownload() {
     array[0].push("Command");
     array[0].push("Size downloaded (MB)");
     array[1].push("Doujinshi");
-    if (response.sanara.download.Doujinshi == undefined) {
+    if (response.sanara.download === null || response.sanara.download.Doujinshi === undefined) {
         array[1].push(0);
     } else {
         array[1].push(response.sanara.download.Doujinshi / 1000);
     }
     array[2].push("Cosplay");
-    if (response.sanara.download.Cosplay == undefined) {
+    if (response.sanara.download === null || response.sanara.download.Cosplay === undefined) {
         array[2].push(0);
     } else {
         array[2].push(response.sanara.download.Cosplay / 1000);
