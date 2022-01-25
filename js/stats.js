@@ -90,10 +90,21 @@ function drawErrors() {
     array[0].push("Return status");
     array[0].push("Nb of occurance");
     let i = 0;
-    for (let key in response.errors) {
+    let dict = {};
+    for (let key in response.sanara.errors) {
+        dict[key] = parseInt(response.sanara.errors[key]);
+    }
+    for (let key in response.hanaki.errors) {
+        if (dict[key] === undefined) {
+            dict[key] = parseInt(response.hanaki.errors[key]);
+        } else {
+            dict[key] += parseInt(response.hanaki.errors[key]);
+        }
+    }
+    for (let key in dict) {
         array.push(new Array());
         array[i + 1].push(key);
-        array[i + 1].push(parseInt(response.errors[key]));
+        array[i + 1].push(dict[key]);
         i++;
     }
     let data = google.visualization.arrayToDataTable(array);
@@ -109,10 +120,21 @@ function drawGames() {
     array[0].push("Game");
     array[0].push("Nb of occurance");
     let i = 0;
-    for (let key in response.games) {
+    let dict = {};
+    for (let key in response.sanara.games) {
+        dict[key] = parseInt(response.sanara.games[key]);
+    }
+    for (let key in response.hanaki.games) {
+        if (dict[key] === undefined) {
+            dict[key] = parseInt(response.hanaki.games[key]);
+        } else {
+            dict[key] += parseInt(response.hanaki.games[key]);
+        }
+    }
+    for (let key in dict) {
         array.push(new Array());
         array[i + 1].push(key);
-        array[i + 1].push(parseInt(response.games[key]));
+        array[i + 1].push(dict[key]);
         i++;
     }
     let data = google.visualization.arrayToDataTable(array);
@@ -136,10 +158,21 @@ function drawBooru() {
     array[0].push("Booru");
     array[0].push("Nb of occurance");
     let i = 0;
-    for (let key in response.booru) {
+    let dict = {};
+    for (let key in response.sanara.booru) {
+        dict[key] = parseInt(response.sanara.booru[key]);
+    }
+    for (let key in response.hanaki.booru) {
+        if (dict[key] === undefined) {
+            dict[key] = parseInt(response.hanaki.booru[key]);
+        } else {
+            dict[key] += parseInt(response.hanaki.booru[key]);
+        }
+    }
+    for (let key in dict) {
         array.push(new Array());
         array[i + 1].push(key);
-        array[i + 1].push(parseInt(response.booru[key]));
+        array[i + 1].push(dict[key]);
         i++;
     }
     let data = google.visualization.arrayToDataTable(array);
