@@ -37,7 +37,7 @@ function drawCommandServs() {
     let modules = ['Date'];
 
     // Headers
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
         if (response.sanara.commands[i] !== null) {
             for (let mod in response.sanara.commands[i]) {
                 if (!modules.includes(mod)) {
@@ -56,7 +56,7 @@ function drawCommandServs() {
 
     let arrData = [modules];
     // Values
-    for (let i = 9; i >= 0; i--) {
+    for (let i = 29; i >= 0; i--) {
         let arr = [];
         if (i === 0) {
             arr.push("Now");

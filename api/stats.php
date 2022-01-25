@@ -14,7 +14,7 @@ function getStats($name, $conn, $now) {
 
     $commands = array();
     $nb_messages = array();
-    for ($i = 0; $i < 10; $i += 1) {
+    for ($i = 0; $i < 30; $i += 1) {
         $curr = new DateTime();
         $curr->sub(new DateInterval("PT" . strval($i) . "H"));
         array_push($commands, remove_id(r\db($name)->table('Commands')->get($curr->format("YmdH"))->run($conn)));
