@@ -25,6 +25,7 @@ xmlhttp.onreadystatechange = function() {
             google.charts.setOnLoadCallback(drawBooru);
             google.charts.setOnLoadCallback(drawGames);
             google.charts.setOnLoadCallback(drawGamePlayers);
+            google.charts.setOnLoadCallback(drawDownload);
         } else {
             console.error(`Error code ${this.status}`);
         }
@@ -149,6 +150,31 @@ function drawGamePlayers() {
     options.isStacked = true;
     options.title = 'Games per players (monthly)';
     let chart = new google.visualization.ColumnChart(document.getElementById('gamePlayersChart'));
+    chart.draw(data, options);
+}
+
+function drawDownload() {
+    let array = new Array();
+    array.push(new Array());
+    array.push(new Array());
+    array.push(new Array());
+    array[0].push("Command");
+    array[0].push("Size downloaded (MB)");
+    array[1].push("Doujinshi");
+    if (response.sanara.download.Doujinshi == undefined) {
+        array[1].push(0);
+    } else {
+        array[1].push(response.sanara.download.Doujinshi / 1000);
+    }
+    array[2].push("Cosplay");
+    if (response.sanara.download.Cosplay == undefined) {
+        array[2].push(0);
+    } else {
+        array[2].push(response.sanara.download.Cosplay / 1000);
+    }
+    let data = google.visualization.arrayToDataTable(array);
+    options.title = 'Size downloaded (daily)';
+    let chart = new google.visualization.ColumnChart(document.getElementById('downloadChart'));
     chart.draw(data, options);
 }
 
