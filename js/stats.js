@@ -152,7 +152,7 @@ function drawErrors() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    options.title = 'Errors encountered (daily)';
+    options.title = 'Errors encountered (monthly)';
     let chart = new google.visualization.PieChart(document.getElementById('errorsChart'));
     chart.draw(data, options);
 }
@@ -182,7 +182,7 @@ function drawGames() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    options.title = 'Games played (daily)';
+    options.title = 'Games played (monthly)';
     let chart = new google.visualization.PieChart(document.getElementById('gamesChart'));
     chart.draw(data, options);
 }
@@ -215,7 +215,7 @@ function drawDownload() {
         array[2].push(response.sanara.download.Cosplay / 1000);
     }
     let data = google.visualization.arrayToDataTable(array);
-    options.title = 'Size downloaded (daily)';
+    options.title = 'Size downloaded (monthly)';
     let chart = new google.visualization.ColumnChart(document.getElementById('downloadChart'));
     chart.draw(data, options);
 }
@@ -245,7 +245,7 @@ function drawBooru() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    options.title = 'Booru used (daily)';
+    options.title = 'Booru used (monthly)';
     let chart = new google.visualization.PieChart(document.getElementById('booruChart'));
     chart.draw(data, options);
 }
