@@ -64,16 +64,18 @@ function getStats($name, $conn, $now) {
         } else {
             $mult = $data[2];
         }
-        if (!array_key_exists($data[0], $playerArr)) {
-            $playerArr[$data[0]] = array($data[1] => array($mult => $value));
+        $game = $data[0];
+        $count = $data[1];
+        if (!array_key_exists($game, $playerArr)) {
+            $playerArr[$game] = array($mult => array($count => $value));
         } else {
-            if (!array_key_exists($data[1], $playerArr[$data[0]])) {
-                $playerArr[$data[0]][$data[1]] = array($mult => $value);
+            if (!array_key_exists($mult, $playerArr[$game])) {
+                $playerArr[$game][$mult] = array($count => $value);
             } else {
-                if (!array_key_exists($mult, $playerArr[$data[0]][$data[1]])) {
-                    $playerArr[$data[0]][$data[1]][$mult] = $value;
+                if (!array_key_exists($count, $playerArr[$game][$mult])) {
+                    $playerArr[$game][$mult][$count] = $value;
                 } else {
-                    $playerArr[$data[0]][$data[1]][$mult] += $value;
+                    $playerArr[$game][$mult][$count] += $value;
                 }
             }
         }
