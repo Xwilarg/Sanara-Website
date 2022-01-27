@@ -17,7 +17,6 @@ function get_month_sum_stats_dict($db, $table, $conn, $now) {
     for ($i = $day; $i >= 0; $i--) {
         for ($h = 0; $h <= 24; $h++) {
             $dict = remove_id(r\db($db)->table($table)->get($now->format("Ym") . strval($i) . strval($h))->run($conn));
-            var_dump($dict);
             if ($dict !== null) {
                 foreach($dict as $key=>$value) {
                     $sum += $value;
@@ -62,7 +61,6 @@ function getStats($name, $conn, $now) {
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
         "commands_sum"  => get_month_sum_stats_dict($name, 'Commands', $conn, $now),
-        "games"         => get_month_stats_dict($name, 'Games', $conn, $now),
         "games_players" => remove_id(r\db($name)->table('GamesPlayers')->get($date)->run($conn)),
         "booru"         => get_month_stats_dict($name, 'Booru', $conn, $now),
         "download"      => get_month_stats_dict($name, 'Download', $conn, $now)
