@@ -3,7 +3,7 @@ function updateInfos() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             response = JSON.parse(this.responseText);
-            document.getElementById("cmdLaunched").innerHTML = "TODO";
+            document.getElementById("cmdLaunched").innerHTML = response.sanara.commands_sum + response.hanaki.commands_sum;
             document.getElementById("serverCount").innerHTML = response.sanara.guild_count.count;
         }
     }
