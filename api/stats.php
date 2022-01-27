@@ -56,12 +56,35 @@ function getStats($name, $conn, $now) {
         array_push($commands, remove_id(r\db($name)->table('Commands')->get($curr->format("YmdH"))->run($conn)));
     }
 
+    $playerArr = array();
+    foreach(get_month_stats_dict($name, 'GamesPlayers', $conn, $now) as $key=>$value) {
+        $data = explode(";", $key);
+        if (count($data) < 3) {
+            $mult = "UNKNOWN";
+        } else {
+            $mult = $data[2];
+        }
+        if (!array_key_exists($data[0], $playerArr)) {
+            $playerArr[$data[0]] = array($data[1] => array($mult => $value));
+        } else {
+            if (!array_key_exists($data[1], $playerArr[$data[0]])) {
+                $playerArr[$data[0]][$data[1]] = array($mult => $value);
+            } else {
+                if (!array_key_exists($mult, $playerArr[$data[0]][$data[1]])) {
+                    $playerArr[$data[0]][$data[1]][$mult] = $value;
+                } else {
+                    $playerArr[$data[0]][$data[1]][$mult] += $value;
+                }
+            }
+        }
+    }
+
     return array(
         "guild_count"   => remove_id(r\db($name)->table('GuildCount')->get($date)->run($conn)),
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
         "commands_sum"  => get_month_sum_stats_dict($name, 'Commands', $conn, $now),
-        "games_players" => remove_id(r\db($name)->table('GamesPlayers')->get($date)->run($conn)),
+        "games_players" => $playerArr,
         "booru"         => get_month_stats_dict($name, 'Booru', $conn, $now),
         "download"      => get_month_stats_dict($name, 'Download', $conn, $now)
     );
