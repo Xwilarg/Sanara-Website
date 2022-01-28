@@ -25,7 +25,7 @@ xmlhttp.onreadystatechange = function() {
             google.charts.setOnLoadCallback(drawCommandPerBot);
             google.charts.setOnLoadCallback(drawBooru);
             google.charts.setOnLoadCallback(drawGames);
-            google.charts.setOnLoadCallback(drawGamePlayers);
+            google.charts.setOnLoadCallback(drawGamesPlayers);
             google.charts.setOnLoadCallback(drawDownload);
         } else {
             console.error(`Error code ${this.status}`);
@@ -161,6 +161,49 @@ function drawGames() {
     let array = new Array();
     array.push(new Array());
     array[0].push("Game");
+    array[0].push("Nb of occurance");
+    let dict = {};
+    for (let key in response.sanara.games) {
+        let sum = 0;
+        for (let type in response.sanara.games[key]) {
+            for (let count in response.sanara.games[key][type]) {
+                sum += response.sanara.games[key][type][count];
+            }
+        }
+        dict[key] = sum;
+    }
+    for (let key in response.hanaki.games) {
+        let sum = 0;
+        for (let type in response.hanaki.games[key]) {
+            for (let count in response.hanaki.games[key][type]) {
+                sum += response.sanara.games[key][type][count];
+            }
+        }
+        if (dict[key] === undefined) {
+            dict[key] = sum;
+        } else {
+            dict[key] += sum;
+        }
+    }
+    let i = 0;
+    for (let key in dict) {
+        array.push(new Array());
+        array[i + 1].push(key);
+        array[i + 1].push(dict[key]);
+        i++;
+    }
+    let data = google.visualization.arrayToDataTable(array);
+
+    options.title = 'Games played (monthly)';
+    options.isStacked = 'percent';
+    let chart = new google.visualization.PieChart(document.getElementById('gamesChart'));
+    chart.draw(data, options);
+}
+
+function drawGamesPlayers() {
+    let array = new Array();
+    array.push(new Array());
+    array[0].push("Game");
     let max = 0;
     let dict = {};
     for (let key in response.sanara.games) {
@@ -215,17 +258,9 @@ function drawGames() {
     }
     let data = google.visualization.arrayToDataTable(array);
 
-    options.title = 'Games played (monthly)';
-    options.isStacked = true;
-    let chart = new google.visualization.ColumnChart(document.getElementById('gamesChart'));
-    chart.draw(data, options);
-}
-
-function drawGamePlayers() {
-    let data = google.visualization.arrayToDataTable([]);
-    options.isStacked = true;
-    options.title = 'Games per players (daily)';
-    let chart = new google.visualization.ColumnChart(document.getElementById('gamePlayersChart'));
+    options.title = 'Players per Game played (monthly)';
+    options.isStacked = 'percent';
+    let chart = new google.visualization.ColumnChart(document.getElementById('gamesPlayersChart'));
     chart.draw(data, options);
 }
 
@@ -250,6 +285,7 @@ function drawDownload() {
     }
     let data = google.visualization.arrayToDataTable(array);
     options.title = 'Size downloaded (monthly)';
+    options.isStacked = false;
     let chart = new google.visualization.ColumnChart(document.getElementById('downloadChart'));
     chart.draw(data, options);
 }
