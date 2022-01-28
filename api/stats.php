@@ -86,7 +86,7 @@ function getStats($name, $conn, $now) {
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
         "commands_sum"  => get_month_sum_stats_dict($name, 'Commands', $conn, $now),
-        "games_players" => $playerArr,
+        "games" => $playerArr,
         "booru"         => get_month_stats_dict($name, 'Booru', $conn, $now),
         "download"      => get_month_stats_dict($name, 'Download', $conn, $now)
     );

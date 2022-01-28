@@ -161,29 +161,63 @@ function drawGames() {
     let array = new Array();
     array.push(new Array());
     array[0].push("Game");
-    array[0].push("Nb of occurance");
-    let i = 0;
+    let max = 0;
     let dict = {};
     for (let key in response.sanara.games) {
-        dict[key] = response.sanara.games[key];
-    }
-    for (let key in response.hanaki.games) {
-        if (dict[key] === undefined) {
-            dict[key] = response.hanaki.games[key];
-        } else {
-            dict[key] += response.hanaki.games[key];
+        for (let type in response.sanara.games[key]) {
+            for (let count in response.sanara.games[key][type]) {
+                if (count > max) {
+                    max = count;
+                }
+                if (dict[key] === undefined ) {
+                    dict[key] = {};
+                }
+                if (dict[key][count] === undefined) {
+                    dict[key][count] = response.sanara.games[key][type][count];
+                } else {
+                    dict[key][count] += response.sanara.games[key][type][count];
+                }
+            }
         }
     }
+    for (let key in response.hanaki.games) {
+        for (let type in response.hanaki.games[key]) {
+            for (let count in response.hanaki.games[key][type]) {
+                if (count > max) {
+                    max = count;
+                }
+                if (dict[key] === undefined ) {
+                    dict[key] = {};
+                }
+                if (dict[key][count] === undefined) {
+                    dict[key][count] = response.hanaki.games[key][type][count];
+                } else {
+                    dict[key][count] += response.hanaki.games[key][type][count];
+                }
+            }
+        }
+    }
+    for (let j = 1; j <= max; j++) {
+        array[0].push(j.toString());
+    }
+    let i = 1;
     for (let key in dict) {
         array.push(new Array());
-        array[i + 1].push(key);
-        array[i + 1].push(dict[key]);
+        array[i].push(key);
+        for (let j = 1; j <= max; j++) {
+            if (dict[key][j] === undefined) {
+                array[i].push(0);
+            } else {
+                array[i].push(dict[key][j]);
+            }
+        }
         i++;
     }
     let data = google.visualization.arrayToDataTable(array);
 
     options.title = 'Games played (monthly)';
-    let chart = new google.visualization.PieChart(document.getElementById('gamesChart'));
+    options.isStacked = true;
+    let chart = new google.visualization.ColumnChart(document.getElementById('gamesChart'));
     chart.draw(data, options);
 }
 
