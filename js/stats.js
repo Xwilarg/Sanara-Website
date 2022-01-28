@@ -26,6 +26,7 @@ xmlhttp.onreadystatechange = function() {
             google.charts.setOnLoadCallback(drawBooru);
             google.charts.setOnLoadCallback(drawGames);
             google.charts.setOnLoadCallback(drawGamesPlayers);
+            google.charts.setOnLoadCallback(drawGamesTypes);
             google.charts.setOnLoadCallback(drawDownload);
         } else {
             console.error(`Error code ${this.status}`);
@@ -195,7 +196,6 @@ function drawGames() {
     let data = google.visualization.arrayToDataTable(array);
 
     options.title = 'Games played (monthly)';
-    options.isStacked = 'percent';
     let chart = new google.visualization.PieChart(document.getElementById('gamesChart'));
     chart.draw(data, options);
 }
@@ -261,6 +261,83 @@ function drawGamesPlayers() {
     options.title = 'Players per Game played (monthly)';
     options.isStacked = 'percent';
     let chart = new google.visualization.ColumnChart(document.getElementById('gamesPlayersChart'));
+    chart.draw(data, options);
+}
+
+function drawGamesTypes() {
+    let array = new Array();
+    array.push(new Array());
+    array[0].push("Game");
+    array[0].push("Unknown");
+    array[0].push("Cooperation");
+    array[0].push("Versus");
+    let max = 0;
+    let dict = {};
+    for (let key in response.sanara.games) {
+        for (let type in response.sanara.games[key]) {
+            let sum = 0;
+            for (let count in response.sanara.games[key][type]) {
+                if (count > 1) {
+                    sum += response.sanara.games[key][type][count];
+                }
+            }
+            if (dict[key] === undefined ) {
+                dict[key] = {};
+            }
+            if (dict[key][type] === undefined) {
+                dict[key][type] = sum;
+            } else {
+                dict[key][type] += sum;
+            }
+        }
+    }
+    for (let key in response.hanaki.games) {
+        for (let type in response.hanaki.games[key]) {
+            let sum = 0;
+            for (let count in response.hanaki.games[key][type]) {
+                if (count > 1) {
+                    sum += response.hanaki.games[key][type][count];
+                }
+            }
+            if (dict[key] === undefined ) {
+                dict[key] = {};
+            }
+            if (dict[key][type] === undefined) {
+                dict[key][type] = sum;
+            } else {
+                dict[key][type] += sum;
+            }
+        }
+    }
+    for (let j = 1; j <= max; j++) {
+        array[0].push(j.toString());
+    }
+    let i = 1;
+    for (let key in dict) {
+        array.push(new Array());
+        array[i].push(key);
+        if (dict[key]["UNKNOWN"] === undefined) {
+            array[i].push(0);
+        } else {
+            array[i].push(dict[key]["UNKNOWN"]);
+        }
+        if (dict[key]["COOPERATION"] === undefined) {
+            array[i].push(0);
+        } else {
+            array[i].push(dict[key]["COOPERATION"]);
+        }
+        if (dict[key]["VERSUS"] === undefined) {
+            array[i].push(0);
+        } else {
+            array[i].push(dict[key]["VERSUS"]);
+        }
+        i++;
+    }
+    let data = google.visualization.arrayToDataTable(array);
+
+    options.title = 'Types per Game played, multiplayer only (monthly)';
+    options.isStacked = 'percent';
+    let chart = new google.visualization.ColumnChart(document.getElementById('gamesTypesChart'));
     chart.draw(data, options);
 }
 
