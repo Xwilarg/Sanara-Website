@@ -7,8 +7,15 @@
 .col-full {
     width: 95%;
 }
+
 .col-half {
-    width: 45%;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-half > div {
+    width: 50%;
 }
 
 .break {
