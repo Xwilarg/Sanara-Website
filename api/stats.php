@@ -11,12 +11,19 @@ function remove_id($array) {
     return array_diff_key(json_decode(json_encode($array), true), array_flip(array("id"))); 
 }
 
+function pad_zero($nb) {
+    if ($nb < 10) {
+        return "0" . strval($nb);
+    }
+    return strval($nb);
+}
+
 function get_month_sum_stats_dict($db, $table, $conn, $now) {
     $day = intval($now->format("d"));
     $sum = 0;
     for ($i = $day; $i >= 0; $i--) {
         for ($h = 0; $h <= 24; $h++) {
-            $dict = remove_id(r\db($db)->table($table)->get($now->format("Ym") . strval($i) . strval($h))->run($conn));
+            $dict = remove_id(r\db($db)->table($table)->get($now->format("Ym") . pad_zero($i) . pad_zero($h))->run($conn));
             if ($dict !== null) {
                 foreach($dict as $key=>$value) {
                     $sum += $value;
@@ -31,7 +38,7 @@ function get_month_stats_dict($db, $table, $conn, $now) {
     $day = intval($now->format("d"));
     $res = array();
     for ($i = $day; $i >= 0; $i--) {
-        $dict = remove_id(r\db($db)->table($table)->get($now->format("Ym") . strval($i))->run($conn));
+        $dict = remove_id(r\db($db)->table($table)->get($now->format("Ym") . pad_zero($i))->run($conn));
         if ($dict !== null) {
             foreach($dict as $key=>$value) {
                 if (array_key_exists($key, $res)) {
