@@ -20,6 +20,9 @@ xmlhttp.onreadystatechange = function() {
 
             google.charts.load('current', {'packages':['corechart']});
 
+            google.charts.setOnLoadCallback(drawCommandRecap);
+            google.charts.setOnLoadCallback(drawCommandSource);
+            google.charts.setOnLoadCallback(drawDownload);
             google.charts.setOnLoadCallback(drawErrors);
             google.charts.setOnLoadCallback(drawCommandServs);
             google.charts.setOnLoadCallback(drawCommandPerBot);
@@ -35,6 +38,82 @@ xmlhttp.onreadystatechange = function() {
 }
 xmlhttp.open("GET", "../api/stats.php", true);
 xmlhttp.send();
+
+function drawCommandRecap() {
+    let array = new Array();
+    array.push(new Array());
+    array[0].push("Command");
+    array[0].push("Nb of occurance");
+    let i = 0;
+    let dict = {};
+    for (let key in response.sanara.commands_source) {
+        for (let source in response.sanara.commands_source[key]) {
+            if (dict[key] === undefined) {
+                dict[key] = response.sanara.commands_source[key][source];
+            } else {
+                dict[key] += response.sanara.commands_source[key][source];
+            }
+        }
+    }
+    for (let key in response.hanaki.commands_source) {
+        for (let source in response.hanaki.commands_source[key]) {
+            if (dict[key] === undefined) {
+                dict[key] = response.hanaki.commands_source[key][source];
+            } else {
+                dict[key] += response.hanaki.commands_source[key][source];
+            }
+        }
+    }
+    for (let key in dict) {
+        array.push(new Array());
+        array[i + 1].push(key);
+        array[i + 1].push(dict[key]);
+        i++;
+    }
+    let data = google.visualization.arrayToDataTable(array);
+
+    options.title = 'Commands usage (monthly)';
+    let chart = new google.visualization.PieChart(document.getElementById('commandsRecapChart'));
+    chart.draw(data, options);
+}
+
+function drawCommandSource() {
+    let array = new Array();
+    array.push(new Array(), new Array(), new Array());
+    array[0].push("Command source");
+    array[0].push("Nb of occurance");
+    let i = 0;
+    let dict = {};
+    let sumSlashCommands = 0;
+    let sumBotPing = 0;
+    for (let key in response.sanara.commands_source) {
+        for (let source in response.sanara.commands_source[key]) {
+            if (source === "Slash Commands") {
+                sumSlashCommands += response.sanara.commands_source[key][source];
+            } else {
+                sumBotPing += response.sanara.commands_source[key][source];
+            }
+        }
+    }
+    for (let key in response.hanaki.commands_source) {
+        for (let source in response.hanaki.commands_source[key]) {
+            if (source === "Slash Commands") {
+                sumSlashCommands += response.hanaki.commands_source[key][source];
+            } else {
+                sumBotPing += response.hanaki.commands_source[key][source];
+            }
+        }
+    }
+    array[1].push("Slash Commands");
+    array[1].push(sumSlashCommands);
+    array[2].push("Bot Pings");
+    array[2].push(sumBotPing);
+    let data = google.visualization.arrayToDataTable(array);
+
+    options.title = 'Source per Commands used (monthly)';
+    let chart = new google.visualization.PieChart(document.getElementById('commandsRepartitionChart'));
+    chart.draw(data, options);
+}
 
 function drawCommandServs() {
     let modules = ['Date'];
@@ -138,7 +217,7 @@ function drawErrors() {
         if (dict[key] === undefined) {
             dict[key] = response.hanaki.errors[key];
         } else {
-            dict[key] += response.hanaki.errors[key]    ;
+            dict[key] += response.hanaki.errors[key];
         }
     }
     for (let key in dict) {

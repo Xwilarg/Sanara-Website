@@ -3,6 +3,7 @@ require './vendor/autoload.php';
 header('Content-Type: application/json');
 $conn = r\connect('localhost');
 $now = new DateTime();
+$now->setTimezone(new DateTimeZone('Europe/London'));
 
 function remove_id($array) {
     if ($array === null) {
@@ -16,22 +17,6 @@ function pad_zero($nb) {
         return "0" . strval($nb);
     }
     return strval($nb);
-}
-
-function get_month_sum_stats_dict($db, $table, $conn, $now) {
-    $day = intval($now->format("d"));
-    $sum = 0;
-    for ($i = $day; $i >= 0; $i--) {
-        for ($h = 0; $h <= 24; $h++) {
-            $dict = remove_id(r\db($db)->table($table)->get($now->format("Ym") . pad_zero($i) . pad_zero($h))->run($conn));
-            if ($dict !== null) {
-                foreach($dict as $key=>$value) {
-                    $sum += $value;
-                }
-            }
-        }
-    }
-    return $sum;
 }
 
 function get_month_stats_dict($db, $table, $conn, $now) {
@@ -60,7 +45,8 @@ function getStats($name, $conn, $now) {
     for ($i = 0; $i < 30; $i += 1) {
         $commands[$i] = array();
         $curr = new DateTime();
-        $curr->sub(new DateInterval("PT" . strval($i + 1) . "H"));
+        $curr->setTimezone(new DateTimeZone('Europe/London'));
+        $curr->sub(new DateInterval("PT" . strval($i) . "H"));
         $dict = remove_id(r\db($name)->table('Commands')->get($curr->format("YmdH"))->run($conn));
         if ($dict !== null)
         {
@@ -101,11 +87,36 @@ function getStats($name, $conn, $now) {
         }
     }
 
+    $commandsPerSource = array();
+    $sum = 0;
+    $day = intval($now->format("d"));
+    for ($i = $day; $i >= 0; $i--) {
+        $dict = remove_id(r\db($name)->table("CommandsDaily")->get($now->format("Ym") . pad_zero($i))->run($conn));
+        if ($dict !== null) {
+            foreach($dict as $key=>$value) {
+                $data = explode(";", $key);
+                $sum += $value;
+                $source = $data[1] == 0 ? "Slash Commands" : "Bot Pings";
+                $cmd = $data[0];
+                if (!array_key_exists($cmd, $commandsPerSource)) {
+                    $commandsPerSource[$cmd] = array($source => $value);
+                } else {
+                    if (!array_key_exists($source, $commandsPerSource[$cmd])) {
+                        $commandsPerSource[$cmd][$source] = $value;
+                    } else {
+                        $commandsPerSource[$cmd][$source] += $value;
+                    }
+                }
+            }
+        }
+    }
+
     return array(
         "guild_count"   => remove_id(r\db($name)->table('GuildCount')->get($date)->run($conn)),
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
-        "commands_sum"  => get_month_sum_stats_dict($name, 'Commands', $conn, $now),
+        "commands_sum"  => $sum,
+        "commands_source"=> $commandsPerSource,
         "games"         => $playerArr,
         "booru"         => get_month_stats_dict($name, 'Booru', $conn, $now),
         "download"      => get_month_stats_dict($name, 'Download', $conn, $now)
