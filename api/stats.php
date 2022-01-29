@@ -58,9 +58,22 @@ function getStats($name, $conn, $now) {
     $commands = array();
     $nb_messages = array();
     for ($i = 0; $i < 30; $i += 1) {
+        $commands[$i] = array();
         $curr = new DateTime();
-        $curr->sub(new DateInterval("PT" . strval($i) . "H"));
-        array_push($commands, remove_id(r\db($name)->table('Commands')->get($curr->format("YmdH"))->run($conn)));
+        $curr->sub(new DateInterval("PT" . strval($i + 1) . "H"));
+        $dict = remove_id(r\db($name)->table('Commands')->get($curr->format("YmdH"))->run($conn));
+        if ($dict !== null)
+        {
+            foreach ($dict as $key => $value)
+            {
+                $newKey = explode(";", $key)[0];
+                if (!array_key_exists($newKey, $commands[$i])) {
+                    $commands[$i][$newKey] = $value;
+                } else {
+                    $commands[$i][$newKey] += $value;
+                }
+            }
+        }
     }
 
     $playerArr = array();
@@ -93,7 +106,7 @@ function getStats($name, $conn, $now) {
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
         "commands_sum"  => get_month_sum_stats_dict($name, 'Commands', $conn, $now),
-        "games" => $playerArr,
+        "games"         => $playerArr,
         "booru"         => get_month_stats_dict($name, 'Booru', $conn, $now),
         "download"      => get_month_stats_dict($name, 'Download', $conn, $now)
     );

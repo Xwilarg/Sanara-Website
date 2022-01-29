@@ -41,18 +41,14 @@ function drawCommandServs() {
 
     // Headers
     for (let i = 0; i < 20; i++) {
-        if (response.sanara.commands[i] !== null) {
-            for (let mod in response.sanara.commands[i]) {
-                if (!modules.includes(mod)) {
-                    modules.push(mod);
-                }
+        for (let mod in response.sanara.commands[i]) {
+            if (!modules.includes(mod)) {
+                modules.push(mod);
             }
         }
-        if (response.hanaki.commands[i] !== null) {
-            for (let mod in response.hanaki.commands[i]) {
-                if (!modules.includes(mod)) {
-                    modules.push(mod);
-                }
+        for (let mod in response.hanaki.commands[i]) {
+            if (!modules.includes(mod)) {
+                modules.push(mod);
             }
         }
     }
