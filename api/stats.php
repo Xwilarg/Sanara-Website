@@ -65,13 +65,9 @@ function getStats($name, $conn, $now) {
     $playerArr = array();
     foreach(get_month_stats_dict($name, 'GamesPlayers', $conn, $now) as $key=>$value) {
         $data = explode(";", $key);
-        if (count($data) < 3) {
-            $mult = "UNKNOWN";
-        } else {
-            $mult = $data[2];
-        }
         $game = $data[0];
         $count = $data[1];
+        $mult = $data[2];
         if (!array_key_exists($game, $playerArr)) {
             $playerArr[$game] = array($mult => array($count => $value));
         } else {

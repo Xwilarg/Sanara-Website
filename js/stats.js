@@ -343,7 +343,6 @@ function drawGamesTypes() {
     let array = new Array();
     array.push(new Array());
     array[0].push("Game");
-    array[0].push("Unknown");
     array[0].push("Cooperation");
     array[0].push("Versus");
     let max = 0;
@@ -391,11 +390,6 @@ function drawGamesTypes() {
     for (let key in dict) {
         array.push(new Array());
         array[i].push(key);
-        if (dict[key]["UNKNOWN"] === undefined) {
-            array[i].push(0);
-        } else {
-            array[i].push(dict[key]["UNKNOWN"]);
-        }
         if (dict[key]["COOPERATION"] === undefined) {
             array[i].push(0);
         } else {
