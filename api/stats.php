@@ -108,7 +108,7 @@ function getStats($name, $conn, $now) {
     }
 
     return array(
-        "guild_count"   => remove_id(r\db($name)->table('GuildCount')->get($date)->run($conn)),
+        "guild_count"   => remove_id(r\db($name)->table('GuildCount')->get("Latest")->run($conn)),
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
         "commands_sum"  => $sum,
