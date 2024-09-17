@@ -4,7 +4,7 @@ function get2DigitsNumber(nb) {
 }
 
 function showPopup(name, source, imageGroup, nbImages) {
-    document.getElementById("popup").hidden = false;
+    document.getElementById("popup").classList.remove("hidden")
     document.getElementById("popupAuthorName").innerHTML = name;
     let finalHtml = "";
     for (let i = 1; i <= nbImages; i++) {
@@ -16,6 +16,6 @@ function showPopup(name, source, imageGroup, nbImages) {
 
 document.addEventListener("mousedown", function(e) {
     if (!document.getElementById('popup').contains(e.target)) {
-        document.getElementById("popup").hidden = true;
+        document.getElementById("popup").classList.add("hidden")
     }
 });

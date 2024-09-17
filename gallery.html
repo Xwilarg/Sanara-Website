@@ -14,31 +14,39 @@
         <ul id="menu">
             <li><a href="index.html"><img alt="Back" src="img/Back.png"></a></li>
         </ul>
-        <div>
-            Click on an image for more information.
-        </div>
-        V4<br/>
-        <span onclick="showPopup('Comission made to Uikoui', 'https:\/\/www.pixiv.net/en/users/11608780', '005', 1)">
-            <img src="img/Gallery/005_01.jpg"/>
-        </span>
-        <hr>
-        V2/V3<br/>
-        <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/74563973', '001', 4)">
-            <img src="img/Gallery/001_01.jpg"/>
-        </span>
-        <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/75455800', '002', 3)">
-            <img src="img/Gallery/002_01.jpg"/>
-        </span>
-        <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/75455800', '003', 1)">
-            <img src="img/Gallery/003_01.jpg"/>
-        </span>
-        <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/76527535', '004', 1)">
-            <img src="img/Gallery/004_01.jpg"/>
-        </span>
-        <div id="popup" hidden>
-            <div>Author: <span id="popupAuthorName"></span></div>
-            <a id="popupSource" class="button" target="_blank" href="">Source</a>
-            <div id="popupImages"></div>
+        <div id="galleryContainer">
+            <div class="center">
+                <div>
+                    <div>
+                        Click on an image for more information.
+                    </div>
+                    V4<br/>
+                    <span onclick="showPopup('Commission made to Uikoui', 'https:\/\/www.pixiv.net/en/users/11608780', '005', 1)">
+                        <img src="img/Gallery/005_01.jpg"/>
+                    </span>
+                    <hr>
+                    V2/V3<br/>
+                    <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/74563973', '001', 4)">
+                        <img src="img/Gallery/001_01.jpg"/>
+                    </span>
+                    <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/75455800', '002', 3)">
+                        <img src="img/Gallery/002_01.jpg"/>
+                    </span>
+                    <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/75455800', '003', 1)">
+                        <img src="img/Gallery/003_01.jpg"/>
+                    </span>
+                    <span onclick="showPopup('BlankSensei', 'https:\/\/www.pixiv.net/en/artworks/76527535', '004', 1)">
+                        <img src="img/Gallery/004_01.jpg"/>
+                    </span>
+                </div>
+            </div>
+            <div id="popup" class="center hidden">
+                <div>
+                    <div>Author: <span id="popupAuthorName"></span></div>
+                    <a id="popupSource" class="button" target="_blank" href="">Source</a>
+                    <div id="popupImages"></div><div>
+                </div>
+            </div>
         </div>
     </body>
     <footer>

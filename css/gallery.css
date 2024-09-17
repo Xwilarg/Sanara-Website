@@ -12,21 +12,29 @@ body > span {
     justify-content: center;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+#galleryContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#galleryContainer > div {
+    flex: 1 1 0;
+    width: 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 span > img {
     max-width: 300px;
     max-height: 500px;
     object-fit: contain;
-}
-
-#popup {
-    background-color: #999;
-    opacity: 0.97;
-    position: absolute;
-    top: 50px;
-    left: 200px;
-    right: 200px;
-    border-radius: 30px;
-    text-align: center;
 }
 
 #popup img {
