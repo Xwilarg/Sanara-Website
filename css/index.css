@@ -32,7 +32,6 @@
 a:not(.button) {
     text-decoration: none;
     border-bottom: dotted 1px;
-    color: rgb(82, 94, 167);
 }
 
 a:not(.button):hover {

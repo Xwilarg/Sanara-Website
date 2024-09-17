@@ -27,13 +27,9 @@
                 <pre>
 git clone https://github.com/Xwilarg/Sanara.git
                 </pre>
-                You will then need to install rethinkdb, which is what the bot used for its database:
-                <ul>
-                    <li>Linux: <a href="https://rethinkdb.com/docs/install/">https://rethinkdb.com/docs/install/</a></li>
-                    <li>Windows: <a href="https://github.com/srh/rethinkdb/releases/download/v2.4.0-srh-win-1/rethinkdb-v2.4.0-srh-win-1-Release_x64.zip">https://github.com/srh/rethinkdb/releases/download/v2.4.0-srh-win-1/rethinkdb-v2.4.0-srh-win-1-Release_x64.zip</a></li>
-                </ul>
+                You will then need to install rethinkdb, which is what the bot used for its database: <a href="https://rethinkdb.com/docs/install/">https://rethinkdb.com/docs/install/</a>
                 Then you can build the bot, but before starting you'll need to add the credentials for the various services<br/>
-                For that, go next to the executable (by default: Sanara/bin/Debug/net6.0) and create a folder called "Keys", inside create a file called "Credentials.json"<br/>
+                For that, go next to the executable (by default: Sanara/bin/Debug/net8.0) and create a folder called "Keys", inside create a file called "Credentials.json"<br/>
                 This file will contains all your keys, stored in JSON format<br/>
                 Only "BotToken" is mandatory, it'll contain your bot token that you can find on the <a href="https://discordapp.com/developers/applications/">Discord developper portail</a><br/><br/>
                 Others fields are:
@@ -43,9 +39,8 @@ git clone https://github.com/Xwilarg/Sanara.git
                     <li>SentryKey: Sentry.io token, used for automatic crash report</li>
                     <li>TopGgToken: Top.gg token, update guild count there</li>
                     <li>MyDramaListApiKey: Token used for Drama command</li>
-                    <li>UnsplashToken: Token used for Photo command</li>
-                    <li>DeepAIKey: Token from DeepAI used for Complete and Generate command</li>
                     <li>DebugGuild: ID of the guild you used to test stuff, if given, slash commands when only be created in this guild when the debugger is attached</li>
+                    <li>GoogleProjectId: ID of the Google project for Translation and Vision</li>
                 </ul>
                 For all Google related services (Translation and Vision), you'll also need the JSON created from their developer page, put it in the Keys/ folder and rename it GoogleAPI.json
                 <br/>
@@ -53,8 +48,7 @@ git clone https://github.com/Xwilarg/Sanara.git
             <br/><hr/><br/>
             <h3 onclick="trigger('Improve')">Improving Sanara<span id="rightImprove" class="right">▼</span></h3>
             <span id="explanationImprove" hidden>
-                To improve Sanara yourself you'll need some C# and Discord.Net knowledge.<br/>
-                If you are ready, you can setup the bot as described in the previous step.<br/><br/>
+                All contribution to Sanara are greatly appreciated, to do so, start by cloning the bot as described in the previous step
                 Here is some explanation of what you can find inside the Sanara/ folder:
                 <ul>
                     <li>Database: Contains all functions that interact with the database</li>
@@ -81,7 +75,6 @@ git clone https://github.com/Xwilarg/Sanara.git
                     <li>Credentials.cs: Deserialisation of Keys/Credentials.json</li>
                     <li>Log.cs: Format and log messages, including errors</li>
                     <li>Program.cs: Entry point and core of the bot</li>
-                    <li>StaticObjects.cs: Store static instance of variables that are used at many place in the code</li>
                     <li>Utils.cs: Static methods that are used at various places in the code</li>
                 </ul>
             </span>
