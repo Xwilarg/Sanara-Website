@@ -1,0 +1,5 @@
+{
+    "require": {
+        "danielmewes/php-rql": "^2.3"
+    }
+}

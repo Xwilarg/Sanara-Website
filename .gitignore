@@ -1,3 +1,4 @@
 json/Help.json
 gallery/*
 !gallery/README.md
+vendor/
