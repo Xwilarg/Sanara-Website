@@ -6,7 +6,7 @@ let options = {
         position: 'right',
         textStyle: {color: "#eee"}
     },
-    backgroundColor: "#181a1b",
+    backgroundColor: "transparent",
     titleTextStyle: {color: "#eee"},
     width: '100%',
     height: 300

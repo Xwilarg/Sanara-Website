@@ -27,6 +27,11 @@
     display: inline-block;
     font-size: 20px;
     margin: 10px;
+    border-radius: 2px;
+}
+
+.button:hover {
+    background-color: transparent;
 }
 
 a:not(.button) {
@@ -84,7 +89,7 @@ table {
     padding-bottom: 40px;
     width: 100%;
     table-layout: fixed;
-    background-color: #151515;
+    background-color: rgb(21, 21, 21, .5);
 }
 
 th {
