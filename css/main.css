@@ -19,6 +19,8 @@
 #menu li a {
     display: block;
     padding: 10px 10px;
+    border: none;
+    font-size: 1.6em;
 }
 
 #menu li a:hover {
