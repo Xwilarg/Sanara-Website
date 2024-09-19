@@ -21,3 +21,21 @@ function updateInfos() {
 
 updateInfos();
 window.setInterval(updateInfos, 60000); // Every minute
+
+const images = [
+    "https://github.com/Xwilarg/Sanara/blob/master/Preview/Cosplay.png?raw=true",
+    "https://github.com/Xwilarg/Sanara/blob/master/Preview/Game.png?raw=true",
+    "https://github.com/Xwilarg/Sanara/blob/master/Preview/Subscription.png?raw=true",
+    "https://github.com/Xwilarg/Sanara/blob/master/Preview/Translate.png?raw=true"
+]
+let imgIndex = 0;
+
+function showNextImage() {
+    imgIndex++;
+    if (imgIndex == images.length) {
+        imgIndex = 0;
+    }
+
+    document.getElementById("carousel-image").src = images[imgIndex];
+}
+window.setInterval(showNextImage, 5000);

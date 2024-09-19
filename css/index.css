@@ -110,3 +110,16 @@ th a {
 .red {
     background-color: rgb(170, 52, 52);
 }
+
+#carousel, #buttons-container {
+    display: flex;
+    justify-content: center;
+}
+
+#carousel {
+    margin-top: 3em;
+}
+
+#carousel-image {
+    border-radius: 5px;
+}
