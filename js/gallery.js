@@ -21,9 +21,3 @@ function showPopup(name, source, imageGroup, nbImages, nsfwStarting, ext) {
     document.getElementById("popupImages").innerHTML = finalHtml;
     document.getElementById("popupSource").href = source;
 }
-
-document.addEventListener("mousedown", function(e) {
-    if (!document.getElementById('popup').contains(e.target)) {
-        document.getElementById("popup").classList.add("hidden")
-    }
-});
