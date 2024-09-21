@@ -12,3 +12,7 @@ table, th, td {
     width: 20%;
     font-weight: 600;
 }
+
+body {
+    padding: 0 10px;
+}

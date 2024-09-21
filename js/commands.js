@@ -4,7 +4,7 @@ function displayPage(name) {
 
     let html = "";
     for (let e of data[name]) {
-        html += `<tr><td id="name">${e.Name}</td><td>${e.Arguments.replaceAll('<', '&lt;').replaceAll('>', '&gt;')}</td><td>${e.Description}</td><td>${e.Restrictions}</td><td>${e.Aliases}</td></tr>`;
+        html += `<tr><td id="name">${e.Name}</td><td>${e.Arguments.replaceAll('<', '&lt;').replaceAll('>', '&gt;')}</td><td>${e.Description}</td><td class="opt">${e.Restrictions}</td><td class="opt">${e.Aliases}</td></tr>`;
     }
     document.getElementById("documentation").innerHTML = html;
 }

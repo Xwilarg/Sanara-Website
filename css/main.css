@@ -63,3 +63,32 @@ footer {
     font-size: .9em;
     padding: 5px 0;
 }
+
+.button {
+    background-color: #114B5F;
+    border: none;
+    color: #eee;
+    width: 200px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: transparent;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        position: relative;
+    }
+    
+    body {
+        margin: 0;
+    }
+}

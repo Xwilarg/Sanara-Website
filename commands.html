@@ -9,15 +9,16 @@
         <meta property="og:description" content="List of commands"/>
         <meta property="og:image" content="https://sanara.zirk.eu/img/Sanara.png"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <ul id="menu">
             <li><a href="index.html"><i class="fa-solid fa-arrow-left"></i></a></li>
         </ul>
-        <command-menu>
+        <div id="command-menu">
             <ul id="moduleList">
             </ul>
-        </command-menu>
+        </div>
         <nav id="table">
             <p>🡄&emsp;Click on a module to display information about it</p>
         </nav>
@@ -26,8 +27,8 @@
                 <th>Name</th>
                 <th>Arguments</th>
                 <th>Description</th>
-                <th>Restriction</th>
-                <th>Aliases</th>
+                <th class="opt">Restriction</th>
+                <th class="opt">Aliases</th>
             </thead>
             <tbody id="documentation">
             </tbody>

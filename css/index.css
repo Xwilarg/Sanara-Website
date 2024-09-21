@@ -15,25 +15,6 @@
     text-align: center;
 }
 
-.button {
-    background-color: #114B5F;
-    border: none;
-    color: #eee;
-    width: 200px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 10px;
-    border-radius: 2px;
-}
-
-.button:hover {
-    background-color: transparent;
-}
-
 a:not(.button) {
     text-decoration: none;
     border-bottom: dotted 1px;
@@ -116,10 +97,20 @@ th a {
     justify-content: center;
 }
 
+#carousel img {
+    max-width: 100%;
+}
+
 #carousel {
     margin-top: 3em;
 }
 
 #carousel-image {
     border-radius: 5px;
+}
+
+@media (max-width: 1000px) {
+    #button-group {
+        text-align: center;
+    }
 }

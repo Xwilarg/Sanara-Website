@@ -1,4 +1,4 @@
-command-menu ul {
+#command-menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ command-menu ul {
     position: fixed;
 }
 
-command-menu li {
+#command-menu li {
     display: block;
     color: #eee;
     padding: 20px 36px;
@@ -22,7 +22,7 @@ command-menu li {
     font-size: 20px;
 }
 
-command-menu li:hover {
+#command-menu li:hover {
     background-color: #181a1b;
     width: 230px;
 }
@@ -70,4 +70,50 @@ h3 {
 
 #name {
     text-transform: capitalize;
+}
+
+@media (max-width: 1500px) {
+    #command-menu {
+        margin: 0;
+    }
+
+    #command-menu ul {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        margin-top: 50px;
+        display: flex;
+        flex-flow: wrap;
+    }
+
+    #command-menu li:hover {
+        width: 100px;
+    }
+
+    #command-menu li {
+        width: 100px;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    #tableHelp {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .opt {
+        display: none;
+    }
+
+    th {
+        width: 33%;
+    }
+}
+
+@media (max-width: 1000px) {
+    footer {
+        position: fixed;
+    }
 }

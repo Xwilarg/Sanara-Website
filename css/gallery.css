@@ -1,6 +1,5 @@
-div {
-    margin-top: 75px;
-    margin-bottom: 50px;
+body {
+    padding-top: 5em;
 }
 
 body > span {
@@ -19,7 +18,7 @@ body > span {
 
 #galleryContainer {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: wrap;
 }
 
 #galleryContainer > div {
@@ -32,7 +31,7 @@ body > span {
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
 }
 
 span > img {
@@ -46,14 +45,6 @@ span > img {
     max-height: 80vh;
 }
 
-.button {
-    text-decoration: none;
-    color: white;
-    border: 1px white solid;
-    border-radius: 5px;
-    padding: 10px;
-}
-
 #contributeInfo {
     position: absolute;
     bottom: 0;
@@ -62,4 +53,27 @@ span > img {
 .nsfw {
     filter: blur(50px);
     pointer-events: none;
+}
+
+#popupImages {
+    margin-top: 2em;
+}
+
+.button {
+    margin: 0;
+    width: 150px;
+}
+
+@media (max-width: 1000px) {
+    body {
+        text-align: center;
+    }
+
+    #galleryContainer {
+        flex-direction: column-reverse;
+    }
+
+    #galleryContainer > div {
+        width: 100%;
+    }
 }
