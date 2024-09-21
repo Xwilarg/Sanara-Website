@@ -101,6 +101,10 @@ th a {
     max-width: 100%;
 }
 
+#carousel-image:hover {
+    filter: brightness(85%);
+}
+
 #carousel {
     margin-top: 3em;
 }
@@ -112,5 +116,9 @@ th a {
 @media (max-width: 1000px) {
     #button-group {
         text-align: center;
+    }
+
+    .opt {
+        display: none;
     }
 }

@@ -31,3 +31,9 @@ g>g>path[fill="#ffffff"] {
 rect[fill="#cccccc"] {
     fill: #333;
 }
+
+@media (max-width: 500px) {
+    .columns > div {
+        min-width: 100%;
+    }
+}

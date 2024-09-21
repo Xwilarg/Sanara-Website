@@ -29,6 +29,7 @@ const images = [
     "https://github.com/Xwilarg/Sanara/blob/master/Preview/Translate.png?raw=true"
 ]
 let imgIndex = 0;
+let timer;
 
 function showNextImage() {
     imgIndex++;
@@ -38,4 +39,12 @@ function showNextImage() {
 
     document.getElementById("carousel-image").src = images[imgIndex];
 }
-window.setInterval(showNextImage, 5000);
+timer = window.setInterval(showNextImage, 5000);
+
+addEventListener("load", (_) => {
+    document.getElementById("carousel-image").addEventListener("click", _ => {
+        clearInterval(timer);
+        timer = window.setInterval(showNextImage, 5000);
+        showNextImage();
+    });
+});
