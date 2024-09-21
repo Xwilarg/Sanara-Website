@@ -4,18 +4,15 @@
     flex-wrap: wrap;
 }
 
-.col-full {
-    width: 95%;
+.columns > div {
+    flex: 1 1 0;
+    width: 0;
+    flex-basis: 50%;
+    min-width: 500px;
 }
 
-.col-half {
-    width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.col-half > div {
-    width: 50%;
+.whole {
+    flex-basis: 100% !important;
 }
 
 .break {
