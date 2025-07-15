@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 require '../vendor/autoload.php';
 header('Content-Type: application/json');
 $conn = r\connect('localhost');
@@ -41,9 +45,11 @@ function getStats($name, $conn, $now) {
     $date = $now->format("Ymd");
 
     $commands = array();
+    $cmdPlatform = array();
     $nb_messages = array();
     for ($i = 0; $i < 30; $i += 1) {
         $commands[$i] = array();
+        $cmdPlatform[$i] = array();
         $curr = new DateTime();
         $curr->setTimezone(new DateTimeZone('Europe/London'));
         $curr->sub(new DateInterval("PT" . strval($i) . "H"));
@@ -52,11 +58,20 @@ function getStats($name, $conn, $now) {
         {
             foreach ($dict as $key => $value)
             {
-                $newKey = explode(";", $key)[0];
+                $e = explode(";", $key);
+                $newKey = $e[0];
                 if (!array_key_exists($newKey, $commands[$i])) {
                     $commands[$i][$newKey] = $value;
                 } else {
                     $commands[$i][$newKey] += $value;
+                }
+                if (count($e) > 2) { // Compat
+                    $platKey = $e[2];
+                    if (!array_key_exists($platKey, $cmdPlatform[$i])) {
+                        $cmdPlatform[$i][$platKey] = $value;
+                    } else {
+                        $cmdPlatform[$i][$platKey] += $value;
+                    }
                 }
             }
         }
@@ -112,6 +127,7 @@ function getStats($name, $conn, $now) {
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
         "commands_sum"  => $sum,
+        "commands_platform" => $cmdPlatform,
         "commands_source"=> $commandsPerSource,
         "games"         => $playerArr,
         "booru"         => get_month_stats_dict($name, 'Booru', $conn, $now),

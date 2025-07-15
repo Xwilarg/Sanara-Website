@@ -25,11 +25,24 @@ a:not(.button):hover {
     border-bottom-color: transparent;
 }
 
-#invite-button {
+#invite-button-discord, #invite-button-revolt {
     width: 300px;
     margin-top: 50px;
     margin-bottom: 0;
     font-size: 22px;
+}
+
+#invites {
+    display: flex;
+    justify-content: center;
+}
+
+#invite-button-discord {
+    background-color: #7289da;
+}
+
+#invite-button-revolt {
+    background-color: #e23e57;
 }
 
 #button-group {

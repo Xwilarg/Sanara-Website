@@ -25,7 +25,7 @@ xmlhttp.onreadystatechange = function() {
             google.charts.setOnLoadCallback(drawDownload);
             google.charts.setOnLoadCallback(drawErrors);
             google.charts.setOnLoadCallback(drawCommandServs);
-            google.charts.setOnLoadCallback(drawCommandPerBot);
+            google.charts.setOnLoadCallback(drawCommandPerPlatform);
             google.charts.setOnLoadCallback(drawBooru);
             google.charts.setOnLoadCallback(drawGames);
             google.charts.setOnLoadCallback(drawDownload);
@@ -161,8 +161,8 @@ function drawCommandServs() {
 }
 
 
-function drawCommandPerBot() {
-    let headers = ['Date', 'Sanara', 'Hanaki'];
+function drawCommandPerPlatform() {
+    let headers = ['Date', 'Discord', 'Revolt'];
 
     let arrData = [headers];
     // Values
@@ -173,31 +173,17 @@ function drawCommandPerBot() {
         } else {
             arr.push(`-${i}H`);
         }
-        if (response.sanara.commands[i] === null) {
-            arr.push(0);
-        } else {
-            let count = 0;
-            for (let val in response.sanara.commands[i]) {
-                count += response.sanara.commands[i][val];
-            }
-            arr.push(count);
-        }
-        if (response.hanaki.commands[i] === null) {
-            arr.push(0);
-        } else {
-            let count = 0;
-            for (let val in response.hanaki.commands[i]) {
-                count += response.hanaki.commands[i][val];
-            }
-            arr.push(count);
-        }
+        const eSanara = response.sanara.commands_platform[i];
+        const eHanaki = response.hanaki.commands_platform[i];
+        arr.push(eSanara["Discord"] ?? 0 + eHanaki["Discord"] ?? 0);
+        arr.push(eSanara["Revolt"] ?? 0 + eHanaki["Revolt"] ?? 0);
         arrData.push(arr);
     }
     let data = google.visualization.arrayToDataTable(arrData);
 
     options.isStacked = true;
     options.title = 'Commands usage';
-    let chart = new google.visualization.ColumnChart(document.getElementById('commandsPerBotChart'));
+    let chart = new google.visualization.ColumnChart(document.getElementById('commandsPerPlatformChart'));
     chart.draw(data, options);
 }
 
