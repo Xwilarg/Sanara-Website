@@ -121,3 +121,7 @@ h3 {
         position: fixed;
     }
 }
+
+.small {
+    width: 2%;
+}
