@@ -117,7 +117,7 @@ function drawCommandServs() {
     let modules = ['Date'];
 
     // Headers
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
         for (let mod in response.sanara.commands[i]) {
             if (!modules.includes(mod)) {
                 modules.push(mod);
