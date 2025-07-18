@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 require '../vendor/autoload.php';
 header('Content-Type: application/json');
 $conn = r\connect('localhost');
@@ -123,7 +119,11 @@ function getStats($name, $conn, $now) {
     }
 
     return array(
-        "guild_count"   => remove_id(r\db($name)->table('GuildCount')->get("Latest")->run($conn)),
+        "guild_count"   =>
+        [
+            "discord" => r\db($name)->table('GuildCount')->get("Latest")->run($conn)["discord"],
+            "revolt" => r\db($name)->table('GuildCount')->get("Latest")->run($conn)["revolt"]
+        ],
         "errors"        => get_month_stats_dict($name, 'Errors', $conn, $now),
         "commands"      => $commands,
         "commands_sum"  => $sum,

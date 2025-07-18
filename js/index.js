@@ -4,7 +4,7 @@ function updateInfos() {
         if (this.readyState == 4 && this.status == 200) {
             response = JSON.parse(this.responseText);
             document.getElementById("cmdLaunched").innerHTML = response.sanara.commands_sum + response.hanaki.commands_sum;
-            document.getElementById("serverCount").innerHTML = response.sanara.guild_count.count;
+            document.getElementById("serverCount").innerHTML = response.sanara.guild_count.discord + response.sanara.guild_count.revolt;
         }
     }
     xmlhttp.open("GET", "../api/stats.php", true);
