@@ -2,10 +2,7 @@
 
 require '../vendor/autoload.php';
 header('Content-Type: application/json');
-$conn = r\connect([
-    'host' => '127.0.0.1',
-    'port' => 28015
-]);
+$conn = r\connect();
 $now = new DateTime();
 $now->setTimezone(new DateTimeZone('Europe/London'));
 
