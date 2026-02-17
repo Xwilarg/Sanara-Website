@@ -1,7 +1,11 @@
 <?php
+
 require '../vendor/autoload.php';
 header('Content-Type: application/json');
-$conn = r\connect('localhost');
+$conn = r\connect([
+    'host' => '127.0.0.1',
+    'port' => 28015
+]);
 $now = new DateTime();
 $now->setTimezone(new DateTimeZone('Europe/London'));
 
@@ -135,7 +139,13 @@ function getStats($name, $conn, $now) {
     );
 }
 
+try {
+    $hanaki = getStats("Hanaki_stats", $conn, $now);
+} catch (Exception $e) {
+    $hanaki = null;
+}
+
 echo(json_encode(array(
     "sanara" => getStats("Sanara_stats", $conn, $now),
-    "hanaki" => getStats("Hanaki_stats", $conn, $now)
+    "hanaki" => $hanaki
 )));

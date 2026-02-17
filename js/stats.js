@@ -53,12 +53,14 @@ function drawCommandRecap() {
             }
         }
     }
-    for (let key in response.hanaki.commands_source) {
-        for (let source in response.hanaki.commands_source[key]) {
-            if (dict[key] === undefined) {
-                dict[key] = response.hanaki.commands_source[key][source];
-            } else {
-                dict[key] += response.hanaki.commands_source[key][source];
+    if (response.hanaki) {
+        for (let key in response.hanaki.commands_source) {
+            for (let source in response.hanaki.commands_source[key]) {
+                if (dict[key] === undefined) {
+                    dict[key] = response.hanaki.commands_source[key][source];
+                } else {
+                    dict[key] += response.hanaki.commands_source[key][source];
+                }
             }
         }
     }
@@ -93,12 +95,15 @@ function drawCommandSource() {
             }
         }
     }
-    for (let key in response.hanaki.commands_source) {
-        for (let source in response.hanaki.commands_source[key]) {
-            if (source === "Slash Commands") {
-                sumSlashCommands += response.hanaki.commands_source[key][source];
-            } else {
-                sumBotPing += response.hanaki.commands_source[key][source];
+    if (response.hanaki)
+    {
+        for (let key in response.hanaki.commands_source) {
+            for (let source in response.hanaki.commands_source[key]) {
+                if (source === "Slash Commands") {
+                    sumSlashCommands += response.hanaki.commands_source[key][source];
+                } else {
+                    sumBotPing += response.hanaki.commands_source[key][source];
+                }
             }
         }
     }
@@ -123,9 +128,12 @@ function drawCommandServs() {
                 modules.push(mod);
             }
         }
-        for (let mod in response.hanaki.commands[i]) {
-            if (!modules.includes(mod)) {
-                modules.push(mod);
+        if (response.hanaki)
+        {
+            for (let mod in response.hanaki.commands[i]) {
+                if (!modules.includes(mod)) {
+                    modules.push(mod);
+                }
             }
         }
     }
@@ -142,7 +150,7 @@ function drawCommandServs() {
         for (let mod of modules.slice(1)) {
             let value = 0;
             let valS = response.sanara.commands[i];
-            let valH = response.hanaki.commands[i];
+            let valH = response.hanaki?.commands[i] ?? 0;
             if (valS !== null && valS[mod] !== undefined) {
                 value += valS[mod];
             }
@@ -174,9 +182,14 @@ function drawCommandPerPlatform() {
             arr.push(`-${i}H`);
         }
         const eSanara = response.sanara.commands_platform[i];
-        const eHanaki = response.hanaki.commands_platform[i];
-        arr.push(eSanara["Discord"] ?? 0 + eHanaki["Discord"] ?? 0);
-        arr.push(eSanara["Revolt"] ?? 0 + eHanaki["Revolt"] ?? 0);
+        if (response.hanaki) {    
+            const eHanaki = response.hanaki.commands_platform[i];
+            arr.push(eSanara["Discord"] ?? 0 + eHanaki["Discord"] ?? 0);
+            arr.push(eSanara["Revolt"] ?? 0 + eHanaki["Revolt"] ?? 0);
+        } else {
+            arr.push(eSanara["Discord"] ?? 0);
+            arr.push(eSanara["Revolt"] ?? 0);
+        }
         arrData.push(arr);
     }
     let data = google.visualization.arrayToDataTable(arrData);
@@ -197,11 +210,13 @@ function drawErrors() {
     for (let key in response.sanara.errors) {
         dict[key] = response.sanara.errors[key];
     }
-    for (let key in response.hanaki.errors) {
-        if (dict[key] === undefined) {
-            dict[key] = response.hanaki.errors[key];
-        } else {
-            dict[key] += response.hanaki.errors[key];
+    if (response.hanaki) {
+        for (let key in response.hanaki.errors) {
+            if (dict[key] === undefined) {
+                dict[key] = response.hanaki.errors[key];
+            } else {
+                dict[key] += response.hanaki.errors[key];
+            }
         }
     }
     for (let key in dict) {
@@ -232,18 +247,20 @@ function drawGames() {
         }
         dict[key] = sum;
     }
-    for (let key in response.hanaki.games) {
-        let sum = 0;
-        for (let type in response.hanaki.games[key]) {
-            for (let count in response.hanaki.games[key][type]) {
-                sum += response.sanara.games[key][type][count];
+    if (response.hanaki) {
+        for (let key in response.hanaki.games) {
+            let sum = 0;
+            for (let type in response.hanaki.games[key]) {
+                for (let count in response.hanaki.games[key][type]) {
+                    sum += response.sanara.games[key][type][count];
+                }
             }
-        }
-        if (dict[key] === undefined) {
-            dict[key] = sum;
-        } else {
-            dict[key] += sum;
-        }
+            if (dict[key] === undefined) {
+                dict[key] = sum;
+            } else {
+                dict[key] += sum;
+            }
+        }   
     }
     let i = 0;
     for (let key in dict) {
@@ -295,11 +312,14 @@ function drawBooru() {
     for (let key in response.sanara.booru) {
         dict[key] = parseInt(response.sanara.booru[key]);
     }
-    for (let key in response.hanaki.booru) {
-        if (dict[key] === undefined) {
-            dict[key] = parseInt(response.hanaki.booru[key]);
-        } else {
-            dict[key] += parseInt(response.hanaki.booru[key]);
+    if (response.hanaki)
+    {
+        for (let key in response.hanaki.booru) {
+            if (dict[key] === undefined) {
+                dict[key] = parseInt(response.hanaki.booru[key]);
+            } else {
+                dict[key] += parseInt(response.hanaki.booru[key]);
+            }
         }
     }
     for (let key in dict) {
